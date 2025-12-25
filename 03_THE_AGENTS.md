@@ -130,7 +130,7 @@ The others are on-demand — Chief of Staff brings them in when you need that ex
 - Server-side logic
 - Security configurations
 
-**When to activate:**
+**When you need this:**
 - "Build the login screen"
 - "Fix this component layout"
 - "Add loading states to the dashboard"
@@ -150,7 +150,7 @@ The others are on-demand — Chief of Staff brings them in when you need that ex
 - Visual styling
 - User interactions
 
-**When to activate:**
+**When you need this:**
 - "Design the database for user profiles"
 - "Build the API for creating orders"
 - "Add caching to the search endpoint"
@@ -170,7 +170,7 @@ The others are on-demand — Chief of Staff brings them in when you need that ex
 - Technical decisions
 - Code
 
-**When to activate:**
+**When you need this:**
 - "Help me spec out the notifications feature"
 - "What should MVP scope be for this?"
 - "Prioritize the backlog for next month"
@@ -190,7 +190,7 @@ The others are on-demand — Chief of Staff brings them in when you need that ex
 - Making design decisions
 - Changing architecture
 
-**When to activate:**
+**When you need this:**
 - "Write tests for the auth flow"
 - "Test this feature before we ship"
 - "Review test coverage for critical paths"
@@ -210,7 +210,7 @@ The others are on-demand — Chief of Staff brings them in when you need that ex
 - UI/UX decisions
 - Performance optimization
 
-**When to activate:**
+**When you need this:**
 - "Review the auth flow before launch"
 - "Audit this feature for security issues"
 - "Check our database policies"
@@ -230,7 +230,7 @@ The others are on-demand — Chief of Staff brings them in when you need that ex
 - Business logic
 - UI components
 
-**When to activate:**
+**When you need this:**
 - "Set up automatic deploys"
 - "Configure the staging environment"
 - "This feature is ready — deploy it"
@@ -290,7 +290,7 @@ Agents coordinate by leaving notes in `_AGENTS.md`:
 - No concerns
 ```
 
-When you activate the Frontend Engineer, they read this note and know exactly what's ready for them.
+When the Frontend Engineer starts work, they read this note and know exactly what's ready for them.
 
 ---
 

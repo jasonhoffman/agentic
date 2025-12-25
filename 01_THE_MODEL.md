@@ -6,79 +6,51 @@ The mechanics behind your AI team.
 
 ## How Agents Work
 
-Agents are AI (like Claude) given a specific role and context. When you activate an agent, it:
+Agents are AI (like Claude) given a specific role and context. When you ask for something, the right agent:
 
-1. **Reads its role file** — Understands what it does and doesn't do
-2. **Reads your project's status** — Knows what's happening, what's needed
+1. **Reads its role** — Understands what it does and doesn't do
+2. **Reads project status** — Knows what's happening, what's needed
 3. **Does the work** — Writes code, creates specs, runs tests
-4. **Updates the status** — Records what it did for you and other agents
+4. **Updates status** — Records what happened for you and other agents
 
-Agents don't have memory between sessions. They get context by reading files. This means everything important is written down — which is actually how good teams work anyway.
-
----
-
-## Work Packages
-
-Work flows through agents in bundles called **work packages**.
-
-A work package is a piece of work that:
-- Has a clear goal ("User can reset their password")
-- Flows through phases (Spec → Design → Build → Test → Ship)
-- Has different agents responsible for each phase
-
-Example:
-
-```
-Work Package: Password Reset
-
-Phase 1: Spec
-├── Agent: Product Manager
-├── Output: User story, acceptance criteria
-└── Your action: Approve the scope
-
-Phase 2: Design
-├── Agent: UX Designer
-├── Output: User flow, wireframes
-└── Auto-proceed (no approval needed)
-
-Phase 3: Build
-├── Agents: Backend + Frontend Engineers
-├── Output: Working code
-└── Auto-proceed
-
-Phase 4: Test
-├── Agent: QA Engineer
-├── Output: Tests passing, bugs documented
-└── Auto-proceed (unless bugs found)
-
-Phase 5: Security
-├── Agent: Security Engineer
-├── Output: Security approval
-└── Your action: Review and approve
-
-Phase 6: Ship
-├── Agent: Platform Engineer
-├── Output: Deployed to production
-└── Your action: Press the button
-```
+Agents don't have memory between sessions. They get context by reading files. This means everything important is written down — which is how good teams work anyway.
 
 ---
 
-## Checkpoints and Auto-Proceed
+## How Work Flows
 
-You don't need to be involved in every step. That would defeat the purpose.
+You say what you want. Agents make it happen.
 
-**Checkpoints** are where you review and decide:
-- Approving the spec (before major work starts)
-- Security review (before shipping)
-- Ship (you decide when it goes live)
+```
+You: Build password reset.
 
-**Auto-proceed** is where agents hand off to each other without waiting for you:
-- Design → Build (once spec is approved)
-- Build → Test (once code is done)
-- Backend → Frontend (once API is ready)
+[Product Manager specs it]
+[Designer flows it]
+[Engineers build it]
+[QA tests it]
+[Security reviews it]
 
-You set up the work, then agents execute. You check in at key moments.
+Chief of Staff: Password reset ready. Ship it?
+
+You: Ship it.
+
+Chief of Staff: Live.
+```
+
+Behind the scenes, agents hand off to each other. You don't manage that — it just happens.
+
+---
+
+## Where You're Involved
+
+You're not involved in every step — that would defeat the purpose.
+
+You show up for three things:
+1. **Approve the spec** — Before major work starts
+2. **Approve security** — Before shipping
+3. **Approve ship** — When it goes live
+
+Everything else flows without you. Design to build to test — agents handle it.
 
 ---
 
@@ -142,11 +114,11 @@ You're just:
 | Concept | What It Means |
 |---------|--------------|
 | **Agents** | AI given specific roles (Product Manager, Engineer, etc.) |
-| **Work Packages** | Bundles of work that flow through agents |
-| **Phases** | Steps in the flow (Spec → Build → Test → Ship) |
-| **Checkpoints** | Where you review and approve |
-| **Auto-proceed** | Where agents hand off without waiting for you |
+| **Chief of Staff** | Your single point of contact — brings in specialists |
+| **Checkpoints** | The 3 moments where you review and decide |
 | **Shared files** | How everyone stays coordinated |
+
+You say what you want. Agents build it. You approve at key moments. Ship.
 
 ---
 

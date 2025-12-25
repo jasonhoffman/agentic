@@ -1,339 +1,224 @@
 # Chapter 5: Getting Started
 
-Set up your first project in 15 minutes.
+Start building in 5 minutes.
 
 ---
 
-## What You'll Do
-
-1. Create your project directory
-2. Copy the template files
-3. Fill in your vision
-4. Activate your first agent
-
-By the end, you'll have a working project with an agent helping you.
-
----
-
-## Step 1: Create Your Project
-
-Make a new directory for your project:
+## The Only Step
 
 ```bash
-mkdir my-project
-cd my-project
-git init
+cd ~/.agentic
+claude
+```
+
+That's it. Chief of Staff takes it from there.
+
+---
+
+## What Happens
+
+```
+Chief of Staff: Welcome to Agentic. What are you building?
+
+You: A mobile app for dog walkers.
+
+Chief of Staff: Great. Let me set up your project.
+
+What do you want to call it?
+
+You: dogwalker
+
+Chief of Staff: Creating ~/projects/dogwalker...
+
+[creates directory]
+[initializes git]
+[copies templates]
+
+Done. Now tell me more about it:
+- Who's the main user — dog owners or walkers?
+- What's the one thing they should be able to do first?
+
+You: Dog owners. They should be able to find and book a walker.
+
+Chief of Staff: Got it. I've started your vision doc.
+
+Want me to bring in the Product Manager to help define the MVP scope?
+
+You: Yes.
+
+Chief of Staff: Bringing in Product Manager.
+
+Product Manager: I see you're building a dog walker booking app.
+Let me ask a few questions to nail down the MVP...
+```
+
+The Chief of Staff:
+1. Creates your project directory
+2. Sets up git
+3. Copies all the template files
+4. Helps you fill in the vision
+5. Brings in specialists when you're ready
+
+You just have a conversation.
+
+---
+
+## Your Project After Setup
+
+```
+~/projects/dogwalker/
+├── claude.md               # Connects to Agentic framework
+└── docs/
+    ├── _TODAY.md           # Your daily briefing
+    ├── _AGENTS.md          # Agent coordination
+    ├── _VISION.md          # What you're building
+    ├── _ROADMAP.md         # Priorities
+    ├── _ARCHITECTURE.md    # Tech decisions
+    └── _CONVENTIONS.md     # Coding standards
+```
+
+Chief of Staff creates all of this. You don't touch files directly unless you want to.
+
+---
+
+## Starting Your Second Session
+
+Once your project exists, start from there:
+
+```bash
+cd ~/projects/dogwalker
+claude
+```
+
+```
+Chief of Staff: Welcome back.
+
+**Since last time:**
+- Vision documented
+- MVP scope defined with Product Manager
+
+**Ready for:**
+- Tech stack decisions
+- Start building
+
+What should we focus on?
+
+You: Let's pick a tech stack and start building auth.
+
+Chief of Staff: For tech stack, I recommend the default:
+- React Native + Expo (mobile)
+- Supabase (backend)
+- TypeScript
+
+Want me to set that up, or do you have preferences?
+
+You: Default is fine.
+
+Chief of Staff: Done. Now let me bring in Backend Engineer for auth.
+
+Backend Engineer: I'll design the auth flow...
 ```
 
 ---
 
-## Step 2: Copy the Templates
+## If You Prefer Manual Setup
 
-Copy the template files from Agentic to your project:
+Some people prefer to set things up themselves. That's fine:
 
 ```bash
+mkdir ~/projects/my-app
+cd ~/projects/my-app
+git init
 cp ~/.agentic/templates/claude.md ./
 cp -r ~/.agentic/templates/docs ./
 ```
 
-(If you cloned agentic elsewhere, adjust the path.)
+Then edit `claude.md` and `docs/_VISION.md` with your project details.
 
-You now have:
-
-```
-my-project/
-├── claude.md               # Connects project to Agentic framework
-└── docs/
-    ├── _TODAY.md           # Your daily operations file
-    ├── _AGENTS.md          # Agent coordination
-    ├── _VISION.md          # What you're building
-    ├── _ROADMAP.md         # Priorities and phases
-    ├── _ARCHITECTURE.md    # Technical decisions
-    └── _CONVENTIONS.md     # Coding standards
-```
+But honestly, just tell Chief of Staff what you're building. It's faster.
 
 ---
 
-## Step 3: Fill In Project Context
-
-First, open `claude.md` and fill in the basics:
-
-```markdown
-# Dog Walker App
-
-This project uses [Agentic](https://github.com/jasonhoffman/agentic).
-
-## For Claude
-[keep as-is]
-
-## Project
-
-**What:** Mobile app connecting dog owners with local dog walkers
-
-**Stack:** React Native, Supabase, TypeScript
-
-**Repo:** https://github.com/you/dog-walker
-
-## Current Focus
-
-MVP: Basic booking flow between owners and walkers
-```
-
-This connects your project to the Agentic framework. When you run `claude` from this directory, it knows it's the Chief of Staff and where to find context.
-
-Then open `docs/_VISION.md` and fill it in. This is the detailed vision — it tells agents what you're building.
-
-You don't need to have everything figured out. Start with what you know:
-
-```markdown
-# Vision
-
-## One-Liner
-A mobile app that helps dog owners find dog walkers.
-
-## Problem
-Dog owners struggle to find reliable walkers on short notice.
-
-## Target Users
-| User | Need |
-|------|------|
-| Dog owners | Find walkers quickly |
-| Dog walkers | Find clients easily |
-
-## Success Looks Like
-| Timeframe | Metric |
-|-----------|--------|
-| 3 months | 100 users in one city |
-| 1 year | Profitable in 3 cities |
-
-## Open Questions
-1. Start B2C or partner with apartments?
-2. How to handle trust/safety?
-```
-
-Don't worry about:
-- Perfect prose
-- Complete answers
-- Technical details
-
-Just get your thoughts down. The Product Manager will help refine it.
-
----
-
-## Step 4: Activate Your First Agent
-
-Now bring in your first agent — the Product Manager — to help refine your vision:
-
-Start a Claude session and say:
-
-```
-You are ~/projects/agentic/reference/roles/product-manager.md
-
-This is a new project. Read docs/_VISION.md and help me:
-1. Ask clarifying questions about the vision
-2. Identify gaps I haven't considered
-3. Propose an MVP scope
-4. Create a phased roadmap
-```
-
-### What Happens Next
-
-The Product Manager will:
-
-1. **Ask clarifying questions**
-   - Who exactly is the target user?
-   - What's the core value proposition?
-   - What are your constraints?
-
-2. **Identify gaps**
-   - "You haven't addressed pricing — subscription or per-walk?"
-   - "What about walker verification?"
-
-3. **Propose MVP scope**
-   - What's IN: Booking, basic profiles, payment
-   - What's OUT: Reviews, recurring walks
-
-4. **Create roadmap**
-   - Phase 1: MVP
-   - Phase 2: Trust features
-   - Phase 3: Growth
-
-### Your Job
-
-- Answer the questions
-- Make decisions on trade-offs
-- Approve or adjust the scope
-
-### What You'll Have After
-
-- Refined `_VISION.md`
-- Populated `_ROADMAP.md`
-- Clear first work package
-
----
-
-## Step 5: Start Your First Work Package
-
-Once the spec is approved, you have your first work package. Activate the next agent:
-
-If it needs design:
-```
-You are ~/projects/agentic/reference/roles/ux-designer.md
-
-Read docs/_AGENTS.md. Create the user flow for [feature].
-```
-
-If it's backend-first:
-```
-You are ~/projects/agentic/reference/roles/backend-engineer.md
-
-Read docs/_AGENTS.md. Design the database and API for [feature].
-```
-
----
-
-## Your Project Structure
-
-After setup, your project looks like:
-
-```
-my-project/
-├── claude.md               # Connects to Agentic framework
-├── docs/
-│   ├── _TODAY.md           # Check this every morning
-│   ├── _AGENTS.md          # Agents update this
-│   ├── _VISION.md          # What you're building
-│   ├── _ROADMAP.md         # Where you're going
-│   ├── _ARCHITECTURE.md    # How it's built
-│   └── _CONVENTIONS.md     # How you code
-│
-└── [your app code will go here]
-```
-
-The `claude.md` file bootstraps every session. The `docs/` folder is your command center.
-
----
-
-## The Templates Explained
+## What's in the Template Files
 
 ### claude.md
 
-The connector file. Contains:
-- Project name and one-liner
-- Pointer to ~/.agentic for Chief of Staff identity
-- Pointer to docs/ for project context
+Connects your project to the Agentic framework:
+- Project name and description
+- Points to ~/.agentic for Chief of Staff identity
 - Current focus
 
-Claude Code reads this automatically when you start a session. It bootstraps the Chief of Staff with your project context.
+### docs/_TODAY.md
 
-### _TODAY.md
-
-Your morning briefing. Shows:
+Your daily briefing:
 - Decisions waiting for you
-- Checkpoints pending
-- What shipped recently
+- Work ready for review
+- What happened recently
 
-Read this every morning. Clear the queue. Get on with your day.
+### docs/_AGENTS.md
 
-### _AGENTS.md
-
-Agent coordination file. Contains:
-- Work package status
-- Agent status
-- Handoff notes
+Agent coordination:
+- Who's working on what
+- Handoff notes between agents
 - Decision queue
 
-Agents update this as they work. You read it for status.
+### docs/_VISION.md
 
-### _VISION.md
-
-What you're building and why. Contains:
+What you're building:
 - The problem you're solving
-- Who you're solving it for
+- Who it's for
 - What success looks like
 
-You write this. Agents read it for context.
+### docs/_ROADMAP.md
 
-### _ROADMAP.md
-
-Your priorities and phases. Contains:
+Your priorities:
 - Current phase
-- What's in scope for MVP
+- What's in MVP
 - What's deferred
 
-Product Manager helps create this. You approve it.
+### docs/_ARCHITECTURE.md
 
-### _ARCHITECTURE.md
-
-Technical decisions. Contains:
+Technical decisions:
 - Tech stack
 - Key patterns
-- Design decisions
+- Design choices
 
-Backend Engineer helps populate this. You approve major decisions.
+### docs/_CONVENTIONS.md
 
-### _CONVENTIONS.md
-
-How code should be written. Contains:
+Coding standards:
 - File naming
 - Code style
-- Testing patterns
-
-Platform Engineer helps document this. All agents follow it.
+- Testing approach
 
 ---
 
-## Common First Steps
-
-### Starting from Scratch (No Code Yet)
-
-1. Fill in `_VISION.md`
-2. Activate Product Manager → Get roadmap
-3. Activate Backend Engineer → Get architecture
-4. Start building work packages
-
-### Existing Project
-
-1. Copy templates to your project
-2. Document current state in `_VISION.md` and `_ARCHITECTURE.md`
-3. List current priorities in `_ROADMAP.md`
-4. Start using agents for new work
-
----
-
-## Tips for Success
+## Tips
 
 ### Start Small
 
-Your first work package should be tiny. Something you can ship in a day. Learn the workflow before tackling big features.
+Your first feature should be tiny. Learn the flow before tackling big things.
 
-### One Agent at a Time (At First)
+### Stay in Conversation
 
-Until you're comfortable, work with one agent per session. Sequential is simpler than parallel.
+You can do everything through conversation with Chief of Staff. They'll tell you when you need to look at a file.
 
 ### You're Still the Builder
 
-Agents help, but make sure you understand what's being built. Review code. Stay technical.
-
-### Document Decisions
-
-When you decide something, write it down. In `_ARCHITECTURE.md`, `_AGENTS.md`, wherever. Future-you will be grateful.
+Agents help, but make sure you understand what's being built. Ask to see the code. Review it.
 
 ---
 
 ## Summary
 
-| Step | What You Do |
-|------|-------------|
-| 1 | Create project directory |
-| 2 | Copy template files |
-| 3 | Fill in `claude.md` and `_VISION.md` |
-| 4 | Activate Product Manager |
-| 5 | Approve spec, start building |
+| What | How |
+|------|-----|
+| Start a new project | `cd ~/.agentic && claude` → "I want to build X" |
+| Continue a project | `cd ~/projects/my-app && claude` |
+| Set up tech stack | "I want the default stack" |
+| Start building | "Let's build the auth flow" |
 
-**Time:** 15 minutes to setup, then you're operating.
+**Time:** 5 minutes to your first feature.
 
 ---
 
 → [Chapter 6: Your First Day](06_YOUR_FIRST_DAY.md)
-

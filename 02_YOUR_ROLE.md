@@ -16,56 +16,45 @@ With Agentic, you wear all the hats that require human judgment. Agents wear the
 
 ---
 
-## Your Four Modes
+## What You Actually Do
 
-Throughout your day, you shift between four modes:
+Day to day, you're doing four things:
 
-### 1. Architect Mode
+**Setting direction:** What are we building? What matters? What stack?
 
-You set the direction.
+```
+You: We're building a mobile app for dog walkers. React Native, Supabase.
+     Just booking for MVP — nothing else.
+```
 
-- What are we building?
-- Why does it matter?
-- What's the tech stack?
-- What are the key constraints?
+**Making decisions:** Agents surface options, you choose.
 
-This is work agents can't do because it requires your judgment, values, and vision.
+```
+Chief of Staff: Backend needs to know — JWT or sessions?
 
-**Example:** "We're building a mobile app for dog walkers. Use React Native and Supabase. Start simple — just booking, nothing else."
+You: JWT.
 
-### 2. Builder Mode
+Chief of Staff: Done. They're proceeding.
+```
 
-Sometimes you write code yourself.
+**Reviewing work:** Before anything ships, you check it.
 
-Not because you have to — agents can write code. But because:
-- The logic is complex and only you understand it fully
-- It's faster to do than explain
-- You want to stay sharp
-- You're prototyping to explore
+```
+Chief of Staff: User profiles API is ready. Security review attached.
 
-**Example:** "This algorithm for matching dogs to walkers is subtle. I'll write it myself and document it for the team."
+You: Looks good. Ship it.
+```
 
-### 3. Reviewer Mode
+**Writing code (when you want to):** You're the founder, not a manager.
 
-You check work at key moments.
+```
+You: I'll write the matching algorithm myself. It's subtle.
 
-- Review specs before major work starts
-- Review security before shipping
-- Review code when it matters
-- Approve or reject with feedback
+Chief of Staff: Makes sense. Let me know when you're done and I'll
+document it for the team.
+```
 
-**Example:** "This spec looks good, but we said no user profiles in MVP. Remove that section and it's approved."
-
-### 4. Orchestrator Mode
-
-You manage the flow.
-
-- Which work packages are active?
-- What decisions are pending?
-- Who's blocked on what?
-- What ships today?
-
-**Example:** "Auth package is done. Notifications is blocked on my decision about push vs email. I'll decide that now so they can proceed."
+The ratio shifts depending on the day. Some days you're mostly reviewing. Some days you're heads-down coding. That's fine.
 
 ---
 
@@ -193,7 +182,7 @@ Shall I bring in QA to test the profiles API?
 
 You: Yes.
 
-Chief of Staff: QA Engineer activated. I'll let you know when testing is complete.
+Chief of Staff: QA Engineer is on it. I'll let you know when testing is complete.
 ```
 
 **Midday:**
@@ -252,19 +241,14 @@ But you have hands too — use them when it makes sense.
 
 ## Summary
 
-| Your Mode | What You're Doing |
-|-----------|------------------|
-| **Architect** | Setting direction, making technical decisions |
-| **Builder** | Writing complex code yourself |
-| **Reviewer** | Approving specs, security, ships |
-| **Orchestrator** | Managing work flow, clearing decisions |
+| You | Agents |
+|-----|--------|
+| Set direction | Execute the work |
+| Make decisions | Surface options |
+| Review before shipping | Build, test, secure |
+| Write code when you want to | Write code when you ask them to |
 
-| You Decide | Agents Decide |
-|------------|---------------|
-| What to build | How to build it |
-| Why it matters | Which patterns to use |
-| When to ship | How to test it |
-| What's in scope | How to optimize it |
+**The rule:** You decide *what*. Agents figure out *how*.
 
 ---
 
