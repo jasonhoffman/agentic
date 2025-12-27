@@ -11,6 +11,7 @@ Deep dives on how the framework works.
 | Work Packages | [work-packages.md](work-packages.md) | Bundles of work that flow through agents |
 | Communication | [communication.md](communication.md) | How agents coordinate via files |
 | Decisions | [decisions.md](decisions.md) | What you decide vs what agents decide |
+| Project Phases | [project-phases.md](project-phases.md) | How phases like pre-launch change behavior |
 
 ---
 
