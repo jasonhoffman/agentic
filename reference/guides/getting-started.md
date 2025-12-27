@@ -1,35 +1,39 @@
 # Getting Started
 
-A quick introduction to the Agentic framework.
+You already know how to run a team. This applies that to AI.
 
 ---
 
 ## What is Agentic?
 
-Agentic is a framework for running AI agent teams on software projects. It provides:
+The patterns that make human teams effective — context handoffs, role specialization, phase-appropriate discipline — work with AI for the same reasons.
 
-- **14 specialized agent roles** — From Frontend Engineer to Customer Success
-- **Coordination patterns** — How agents communicate and hand off work
-- **Decision frameworks** — What agents decide vs what humans decide
-- **Project templates** — Standard documents for any project
+This repository provides:
+
+- **14 specialized roles** — The same specializations humans have
+- **Coordination patterns** — How context persists across sessions
+- **Decision frameworks** — What you decide vs. what agents decide
+- **Project templates** — Structure that makes it all work
+
+→ See [PHILOSOPHY.md](/PHILOSOPHY.md) for the deeper insight.
 
 ---
 
 ## The Key Idea
 
-**You are the conductor. Agents are the orchestra.**
+**You're running a team. The team is AI.**
 
-As the human (CEO/CTO/Head of Product), you:
-- Set vision and priorities
-- Make judgment calls and trade-offs
-- Orchestrate agent handoffs
-- Write code alongside agents (if you want)
+As the human, you:
+- Set vision and priorities (same as always)
+- Make judgment calls and trade-offs (same as always)
+- Orchestrate handoffs between specialists (same as always)
+- Code when your judgment is needed in the details (same as always)
 
 Agents:
 - Execute within their scope
 - Surface decisions they can't make
 - Communicate through shared documents
-- Hand off work to each other (through you)
+- Hand off work to each other
 
 ---
 
@@ -163,4 +167,4 @@ Agents make you more effective — they don't replace your judgment.
 
 ---
 
-> **Remember:** Agents are tools that amplify your capabilities. You're still the one building something meaningful.
+> **Remember:** You're not learning a new tool. You're applying what you already know about running teams to a new substrate. The patterns are the same. The muscle memory transfers.

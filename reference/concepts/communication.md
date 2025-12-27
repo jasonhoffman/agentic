@@ -1,5 +1,15 @@
 # Communication
 
+## Why Files, Not Memory
+
+On a human team, context lives in people's heads. When someone leaves, context leaves. When someone joins, they need ramp-up time. When you're out for a week, things drift.
+
+AI has a more extreme version of this: every session starts with zero context. Without explicit coordination, you'd repeat yourself constantly.
+
+`_AGENTS.md` is the team's shared memory. It's what you'd have if humans actually documented things the way they should.
+
+---
+
 Agents communicate through shared documentation. No hidden state, no private channels.
 
 ## The _AGENTS.md File

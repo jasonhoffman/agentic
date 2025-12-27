@@ -1,5 +1,15 @@
 # How It Works
 
+## Why It Works This Way
+
+You're filling lag time. Claude works for 20 minutes; you do something else. That's the surface efficiency.
+
+The deeper thing: you're running multiple workstreams the way you'd run a team. Each "terminal" is a team member with a focus. `_AGENTS.md` is your standup board. Handoffs are the notes you wish humans wrote.
+
+The patterns feel familiar because they are. This is just team coordination made explicit enough for AI to follow.
+
+---
+
 Filling lag time. Staying oriented. Capturing context.
 
 ---

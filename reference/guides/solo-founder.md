@@ -1,21 +1,25 @@
 # Solo Founder Guide
 
-How a technical founder runs a startup with AI agents.
+You've done this before — maybe with a team of 5, maybe 50. You know how to onboard someone, give them scope, check in at the right moments, and trust them to execute.
+
+This is the same thing.
+
+The difference: no hiring, no management overhead, no context decay across weekends. The trade-off: you have to be more explicit about what you'd normally communicate through culture and osmosis.
 
 ---
 
 ## The Technical Founder Profile
 
-You're not a non-technical founder delegating to engineers. You're a technical founder who:
+You're a technical founder who:
 
 - **Can code** — but that's not always where you add the most value
 - **Understands architecture** — so you can review and guide
 - **Knows what good looks like** — so you can approve confidently
 - **Could do everything yourself** — but that doesn't scale
 
-The insight: **You can code, but you haven't had to.** Agents do the implementation. You provide judgment, direction, and strategic intervention.
+The insight: **You can code, but you don't have to.** Agents do the implementation. You provide judgment, direction, and strategic intervention.
 
-This isn't delegation to an external team. This is **amplification** — your technical intuition executed at scale.
+This isn't delegation to a black box. This is **amplification** — your technical intuition executed at scale.
 
 ---
 

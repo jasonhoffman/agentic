@@ -4,6 +4,16 @@ How agents and humans share decision-making responsibility.
 
 ---
 
+## The Same Rules Apply
+
+On a human team, you don't micromanage implementation details. But you do own major decisions — architecture, priorities, what to ship.
+
+Your reports learn where the boundaries are. They know what to bring to you and what to handle themselves. Good judgment about those boundaries is what makes someone senior.
+
+AI needs the same thing, just explicit. This document defines those boundaries.
+
+---
+
 ## The Core Principle
 
 **Humans own judgment. Agents own execution.**

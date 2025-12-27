@@ -1,8 +1,12 @@
 # Roles
 
-Roles help you context-switch cleanly.
+## Why Roles Exist
 
-When you have 5 terminals open, you need to glance at one and know: "That's Backend on the profiles API." The role gives each terminal a clear identity.
+On a human team, specialization emerges naturally. The backend person thinks differently than the frontend person. They have different contexts loaded, different heuristics, different instincts.
+
+AI doesn't have this by default. Every session starts fresh. Roles create the same specialization — by loading context that shapes how the agent thinks.
+
+This isn't a workaround. It's the same thing you did with humans, just explicit.
 
 ---
 
@@ -15,6 +19,8 @@ Now that terminal has a focus. It thinks about APIs, database schema, server pat
 Another terminal: "You're QA. Run the test suite and report failures."
 
 Different focus. Same Claude. The role is a **context lens**, not a capability limit.
+
+When you have 5 terminals open, you need to glance at one and know: "That's Backend on the profiles API." The role gives each terminal a clear identity — the same way a person's role tells you what they're focused on.
 
 ---
 

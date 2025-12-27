@@ -1,24 +1,39 @@
 # Agentic
 
-A coordination layer for humans running parallel Claude sessions.
+You've run teams before. You know how they work — context handoffs, role specialization, phase-appropriate discipline. These patterns work with AI for the same reasons they work with humans.
+
+This repository encodes that operational intuition into a system Claude can follow.
+
+---
+
+## The Shift
+
+Most people treat AI as a tool. This treats AI as a team member that needs:
+
+- **Onboarding** — Role files, project context, operating agreements
+- **Clear scope** — Work packages, decision rights, phase discipline
+- **Coordination** — Handoffs that capture "why," shared state
+- **Structure** — What was implicit with humans is explicit here
+
+If you've built a company, you've done this before. The substrate changed. The patterns stay.
+
+→ [PHILOSOPHY.md](PHILOSOPHY.md) — The deeper insight
 
 ---
 
 ## What This Is (and Isn't)
 
-Claude Code has a `feature-dev` plugin. It's excellent — a 7-phase process where Claude drives discovery, exploration, architecture, implementation, and review. You approve checkpoints. Claude runs the show.
-
-**This framework solves a different problem.**
-
 You have multiple terminals open. Each is running Claude. One's building an API, another's on the frontend, a third is running tests. You're switching between them, making decisions, unblocking work.
 
-The question isn't "how do I automate feature development?" It's:
+The questions are familiar:
 
-- **What is this terminal doing right now?**
-- **Where was it when I left?**
-- **Why did it make that choice?**
+- **What is this person doing right now?** → What is this terminal doing?
+- **Where were they when I left?** → Where was it when I left?
+- **Why did they make that choice?** → Why did it make that choice?
 
-This framework helps you stay oriented while *you* orchestrate the work.
+This is team coordination. The methodology handles it the same way you would with humans — roles, handoffs, shared context, appropriate checkpoints.
+
+Claude Code also has a `feature-dev` plugin — a 7-phase process where Claude drives and you approve checkpoints. Use both. Run `feature-dev` in one terminal while doing something else in another. They complement each other.
 
 | | feature-dev | agentic |
 |---|---|---|
@@ -26,8 +41,6 @@ This framework helps you stay oriented while *you* orchestrate the work.
 | **Structure** | 7 sequential phases | Parallel terminals |
 | **Coordination** | Built into the process | Shared files + handoffs |
 | **Best for** | Complex features, thorough process | Multiple workstreams, human orchestration |
-
-Use both. Run `feature-dev` in one terminal while doing something else in another. They complement each other.
 
 ---
 
@@ -126,8 +139,9 @@ Say "hi" — the Chief of Staff reads context and tells you where things stand.
 
 | Doc | What |
 |-----|------|
+| [PHILOSOPHY.md](PHILOSOPHY.md) | Why this works — the core insight |
 | [CLAUDE.md](CLAUDE.md) | Chief of Staff instructions |
-| [AGENTS.md](AGENTS.md) | Role definitions |
+| [ROLES.md](ROLES.md) | The 14 specialists |
 | [TECH_STACK.md](TECH_STACK.md) | Default tech choices |
 | [reference/](reference/) | Deep dives on roles, workflows, concepts |
 

@@ -1,5 +1,13 @@
 # Pre-Launch Stabilization
 
+## Why This Phase Exists
+
+You've done this before. The last two weeks before launch, the rules change. No new features. No refactoring. Just fix what's broken, verify it works, ship it.
+
+This is the same discipline, encoded for AI. Without it, agents will helpfully "improve" things right before launch. This tells them: don't.
+
+---
+
 ## Current Mode: LAUNCH FREEZE
 
 We are in pre-launch stabilization. The app is feature-complete.
@@ -31,3 +39,28 @@ We are in pre-launch stabilization. The app is feature-complete.
 - Nothing else changed
 - Tests pass
 - I've told you exactly what file(s) I modified and why
+
+---
+
+## Verification Gate
+
+Run these checks at the start of every session:
+
+```bash
+npx tsc --noEmit          # Type check
+npm test                   # All tests pass
+```
+
+If either fails, fix before doing anything else.
+
+### Before Each Change
+
+Use LSP-first exploration:
+
+1. **Find all references** — How many places use this? What's the blast radius?
+2. **Check type signature** — What flows in and out?
+3. **Make the minimal change**
+4. **Check diagnostics** — Did I introduce errors elsewhere?
+5. **Full verification** — `tsc --noEmit` + tests
+
+This is faster and more surgical than grep → read → change → hope.
