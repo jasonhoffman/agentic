@@ -195,6 +195,40 @@ This stack powers real production apps. It's optimized for speed to market with 
 
 **The alternative:** Plain JavaScript. Faster to write initially, harder to maintain.
 
+---
+
+## TypeScript as a First-Class Constraint
+
+TypeScript isn't just a language choice — it's a quality gate. The type system is executable documentation that agents can verify.
+
+### Principles
+
+1. **Type errors are bugs.** Not warnings, not tech debt. A type error blocks the commit.
+
+2. **`any` requires approval.** Every `as any` or `// @ts-ignore` is a red flag. If truly necessary, document why.
+
+3. **End-to-end type safety.** Types should flow from database to UI:
+   - Database → Prisma/Drizzle generates types from schema
+   - API → tRPC or server actions maintain types across network boundary
+   - Validation → Zod validates at runtime, infers types at compile time
+
+4. **LSP before grep.** Use language server for navigation: "find references" and "go to definition" before text search.
+
+### Verification Checklist
+
+Before any commit:
+```bash
+npx tsc --noEmit          # Type-check passes
+npm run lint              # No new warnings
+npm test                  # Tests pass
+```
+
+In pre-launch mode, this is non-negotiable.
+
+### Type Boundaries
+
+For each project, define where types cross boundaries. See `_STACK.md` for project-specific type topology.
+
 ### Expo EAS + Cloudflare/Vercel
 
 **What it is:**

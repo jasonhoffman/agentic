@@ -199,3 +199,7 @@ See [ROLES.md](ROLES.md) for overview, [reference/roles/](reference/roles/) for 
 **Capture why.** Handoffs explain reasoning, not just facts.
 
 **Make decisions easy.** Options with recommendations.
+
+**LSP before grep.** For TypeScript, use language server (find references, go to definition) before text search. See [lsp-first](reference/concepts/lsp-first.md).
+
+**Type errors are bugs.** In TypeScript projects, `tsc --noEmit` must pass before commit. No `any` without documented reason.

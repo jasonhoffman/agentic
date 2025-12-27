@@ -21,6 +21,7 @@ Deep dives on how the framework works.
 |---------|------|-----------------|
 | Thinking Modes | [thinking-modes.md](thinking-modes.md) | Implementation vs Verification vs Optimization |
 | Orchestration | [orchestration.md](orchestration.md) | Human as conductor, autonomy levels |
+| LSP-First | [lsp-first.md](lsp-first.md) | Use language server before text search |
 
 ---
 

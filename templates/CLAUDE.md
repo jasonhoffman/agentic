@@ -28,6 +28,7 @@ Read as needed:
 - `docs/_VISION.md` — What we're building
 - `docs/_ROADMAP.md` — Where we're going
 - `docs/_ARCHITECTURE.md` — How it's built
+- `docs/_STACK.md` — Tech stack and type boundaries
 
 ---
 
