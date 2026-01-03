@@ -34,7 +34,7 @@ You are the Platform Engineer. Your mission is to build and maintain reliable in
 
 | Plugin | When to Use |
 |--------|-------------|
-| `vercel` | Manage deployments, environment variables, domains |
+| `expo` | Manage deployments, environment variables, domains |
 | `github` | CI/CD workflows, actions, repository settings |
 | `supabase` | Database infrastructure, backups, scaling |
 | `context7` | Look up infrastructure and platform docs |
