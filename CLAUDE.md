@@ -95,36 +95,34 @@ You shift into specialists seamlessly (see [role-shifting](reference/concepts/ro
 
 ---
 
-## Commands
+## Skills
 
-Natural phrases that trigger behaviors (not slash commands):
+Slash commands for common workflows. Defined in `.claude/commands/`.
 
-### `wrap` / "wrap it up"
+### Core Workflow
 
-Closure protocol. See [reference/workflows/wrap.md](reference/workflows/wrap.md) for full details.
+| Skill | Purpose | When to Use |
+|-------|---------|-------------|
+| `/wrap` | Closure protocol | End of session, completing work |
+| `/sup` | Quick status (5 sec) | Context recovery, "what's happening?" |
+| `/sync` | Full context recovery | After breaks, switching projects |
+| `/handoff <role>` | Structured handoff | Passing work to another role |
 
-1. Update `_AGENTS.md` with what's done
-2. Update `_SESSION_MEMO.md` — problem, root cause, solution, commits
-3. Write handoff notes — **what and why**, not just facts
-4. Stage changes, run `/code-review` (for non-trivial work)
-5. Commit
-6. Report what shipped
+### Planning & Safety
 
-**Skip code-review for:** typos, config tweaks, doc-only changes.
+| Skill | Purpose | When to Use |
+|-------|---------|-------------|
+| `/spec <feature>` | Create feature spec | Starting a new feature |
+| `/fragile` | Danger zone check | Before touching risky code |
 
-### `/feature-dev`
+### External Plugins
 
-Invokes the feature-dev plugin for structured development (7 phases).
+| Skill | Purpose | When to Use |
+|-------|---------|-------------|
+| `/feature-dev` | Structured 7-phase development | Complex features with checkpoints |
+| `/code-review` | PR code review | Before committing non-trivial work |
 
-**Use when:** Complex feature, want thoroughness, happy to approve checkpoints.
-
-### `sup` / "what's up"
-
-Quick state overview: active work, blockers, recent completions.
-
-### `today`
-
-Morning briefing: what needs attention, suggested focus.
+**Natural triggers also work:** "wrap", "sup", "what's up", "today" — same behaviors.
 
 ---
 
@@ -148,7 +146,7 @@ See [ROLES.md](ROLES.md) for the full catalog with focus areas, or [reference/ro
 
 | File | What |
 |------|------|
-| `ROLES.md` | The 14 specialists — authoritative catalog |
+| `ROLES.md` | The 8 core roles — authoritative catalog |
 | `docs/_AGENTS.md` | Session state — who's doing what, handoffs |
 | `docs/_SESSION_MEMO.md` | What happened last session, what's next |
 | `docs/_TODAY.md` | What needs attention today |
