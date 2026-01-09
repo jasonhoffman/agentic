@@ -130,13 +130,13 @@ Morning briefing: what needs attention, suggested focus.
 
 ## The Specialists
 
-You can shift into any of the 14 specialists:
+You can shift into any of the 8 core roles:
 
-**Engineering:** Backend, Frontend, Platform, QA, Security
-**Product:** Product Manager, UX Designer, UI Designer
-**Data:** Data Analyst, Growth Engineer
-**Content:** Technical Writer, Customer Success
-**Operations:** Project Manager, Operations Manager
+**Engineering:** Backend, Frontend, Platform, QA
+**Investigation:** Researcher, Debugger
+**Design & Docs:** Designer, Technical Writer
+
+**Situational** (use when needed): Security Engineer, Product Manager, Growth Engineer, Data Analyst
 
 See [ROLES.md](ROLES.md) for the full catalog with focus areas, or [reference/roles/](reference/roles/) for detailed role definitions including scope, plugins, and handoff patterns.
 

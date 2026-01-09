@@ -1,8 +1,6 @@
 # Roles
 
-Roles help you context-switch cleanly.
-
-When you have 5 terminals open, you need to glance at one and know: "That's Backend on the profiles API." The role gives each terminal a clear identity.
+Roles give each terminal a clear identity. When you have 5 terminals open, you glance at one and know: "That's Backend on the profiles API."
 
 ---
 
@@ -12,13 +10,13 @@ You open a terminal and say: "You're Backend Engineer. Build the profiles API."
 
 Now that terminal has a focus. It thinks about APIs, database schema, server patterns. When you come back after an hour, you know exactly what it was doing.
 
-Another terminal: "You're QA. Run the test suite and report failures."
-
-Different focus. Same Claude. The role is a **context lens**, not a capability limit.
+The role is a **context lens**, not a capability limit.
 
 ---
 
-## The Roles
+## Core Roles (8)
+
+These are battle-tested — used in real production projects.
 
 ### Engineering
 
@@ -27,37 +25,34 @@ Different focus. Same Claude. The role is a **context lens**, not a capability l
 | **Backend Engineer** | APIs, database, server logic, business rules |
 | **Frontend Engineer** | UI, screens, components, client state |
 | **Platform Engineer** | Deploy, CI/CD, infrastructure, monitoring |
-| **QA Engineer** | Testing, quality, edge cases, regression |
-| **Security Engineer** | Auth, vulnerabilities, security review |
+| **QA Engineer** | Testing, quality, edge cases, RLS security |
 
-### Product & Design
-
-| Role | Focus |
-|------|-------|
-| **Product Manager** | Specs, user stories, priorities, scope |
-| **UX Designer** | User flows, wireframes, interaction patterns |
-| **UI Designer** | Visual design, styling, component library |
-
-### Data & Growth
+### Investigation
 
 | Role | Focus |
 |------|-------|
-| **Data Analyst** | Metrics, dashboards, insights |
-| **Growth Engineer** | Experiments, A/B tests, optimization |
+| **Researcher** | Codebase exploration, pattern analysis, investigation |
+| **Debugger** | Root cause analysis, incident response, log analysis |
 
-### Content & Support
+### Design & Docs
 
 | Role | Focus |
 |------|-------|
+| **Designer** | UX flows, wireframes, visual design, components |
 | **Technical Writer** | Documentation, guides, API docs |
-| **Customer Success** | User feedback synthesis, support patterns |
 
-### Operations
+---
 
-| Role | Focus |
-|------|-------|
-| **Project Manager** | Status tracking, dependencies, coordination |
-| **Operations Manager** | Process optimization, workflow improvement |
+## Situational Roles
+
+Use these when the situation calls for them.
+
+| Role | When Needed |
+|------|-------------|
+| **Security Engineer** | Auth changes, security audits, penetration testing |
+| **Product Manager** | Complex specs, multi-stakeholder projects |
+| **Growth Engineer** | Post-launch optimization, A/B tests, funnels |
+| **Data Analyst** | Metrics, dashboards, insights (needs users first) |
 
 ---
 
@@ -65,7 +60,12 @@ Different focus. Same Claude. The role is a **context lens**, not a capability l
 
 The default when you just say "hi" without specifying a role.
 
-Reads project context, knows where things stand, can shift into any specialist. When you need focused work, it either:
+Reads project context, knows where things stand, can shift into any specialist. Handles:
+- Planning and coordination (absorbs Project Manager)
+- Process decisions (absorbs Operations Manager)
+- Quick specs (can delegate to Product Manager for complex ones)
+
+When you need focused work, it either:
 - **Shifts** — Becomes that specialist in the same terminal
 - **Delegates** — You open another terminal with that role
 
@@ -92,7 +92,8 @@ Terminals don't talk to each other. They read and write files.
 | File | Purpose |
 |------|---------|
 | `docs/_AGENTS.md` | Who's doing what, handoffs, blockers |
-| `docs/_TODAY.md` | What needs attention today |
+| `docs/_SESSION_MEMO.md` | What happened, why, what's next |
+| `docs/_FRAGILE.md` | Danger zones to check before changes |
 
 When Backend finishes the API:
 1. Updates `_AGENTS.md` — "Profiles API done"

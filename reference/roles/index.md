@@ -1,8 +1,8 @@
 # Agent Roles Reference
 
-Detailed role definitions for all 14 agents.
+Detailed role definitions. 8 core roles, plus situational roles for specific needs.
 
-For the authoritative role catalog with focus areas, see [ROLES.md](../../ROLES.md).
+For the authoritative role catalog, see [ROLES.md](../../ROLES.md).
 
 ---
 
@@ -41,44 +41,58 @@ Claude Code plugins extend what agents can do. They're **available when relevant
 | Role | Default Plugin | Purpose |
 |------|----------------|---------|
 | Backend Engineer | `supabase` | Database operations, RLS, migrations |
-| UI Designer | `frontend-design` | Production-grade UI generation |
+| Designer | `frontend-design` | Production-grade UI generation |
 | Platform Engineer | `vercel` | Deployment, environment management |
 | Security Engineer | `code-review` | PR security review |
 | Product Manager | `feature-dev` | Structured feature development |
-| UX/UI Designer | `figma` | Design imports |
 | Growth Engineer | `stripe` | Payment experiments |
 
 See individual role files for full plugin lists.
 
 ---
 
-## Role Files
+## Core Roles (8)
 
 ### Engineering
 
 - [backend-engineer.md](backend-engineer.md) — APIs, database, business logic
 - [frontend-engineer.md](frontend-engineer.md) — UI, screens, components
 - [platform-engineer.md](platform-engineer.md) — CI/CD, infrastructure
-- [qa-engineer.md](qa-engineer.md) — Testing, quality verification
-- [security-engineer.md](security-engineer.md) — Security audits, auth review
+- [qa-engineer.md](qa-engineer.md) — Testing, quality, RLS security
 
-### Product & Design
+### Investigation
 
-- [product-manager.md](product-manager.md) — Specs, priorities
-- [ux-designer.md](ux-designer.md) — Flows, wireframes
-- [ui-designer.md](ui-designer.md) — Visual design, components
+- [researcher.md](researcher.md) — Codebase exploration, pattern analysis
+- [debugger.md](debugger.md) — Root cause analysis, incident response
 
-### Data & Growth
+### Design & Docs
 
-- [data-analyst.md](data-analyst.md) — Metrics, insights
-- [growth-engineer.md](growth-engineer.md) — Experiments, optimization
-
-### Content & Support
-
+- [designer.md](designer.md) — UX flows, visual design, components
 - [technical-writer.md](technical-writer.md) — Documentation, guides
-- [customer-success.md](customer-success.md) — User feedback synthesis
 
-### Operations
+---
 
-- [project-manager.md](project-manager.md) — Status tracking, blockers
-- [operations-manager.md](operations-manager.md) — Process optimization
+## Situational Roles
+
+Use these when the situation calls for them:
+
+- [security-engineer.md](security-engineer.md) — Auth changes, security audits
+- [product-manager.md](product-manager.md) — Complex specs, multi-stakeholder projects
+- [growth-engineer.md](growth-engineer.md) — Post-launch optimization
+- [data-analyst.md](data-analyst.md) — Metrics, dashboards (needs users first)
+
+---
+
+## Archived Roles
+
+These roles were merged or absorbed:
+
+| Archived | Now Handled By |
+|----------|----------------|
+| UX Designer | [Designer](designer.md) |
+| UI Designer | [Designer](designer.md) |
+| Project Manager | Chief of Staff |
+| Operations Manager | Chief of Staff |
+| Customer Success | Product Manager or Chief of Staff |
+
+Archived files available in `archive/` for reference.
