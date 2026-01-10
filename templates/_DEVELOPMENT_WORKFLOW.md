@@ -42,9 +42,10 @@ Every change goes through these phases. The depth of each phase scales with risk
 - Write a brief proposal
 - List files to modify
 - Identify dependencies
+- Consider creating an RFD if architectural
 
 **For large changes (10+ files):**
-- Create a plan document
+- Create a plan document (RFD or PRD)
 - Use `/feature-dev` for full ceremony
 - Get founder approval before starting
 
@@ -73,7 +74,7 @@ Every change goes through these phases. The depth of each phase scales with risk
 
 **Goal:** Confirm it works and doesn't break other things.
 
-**Checklist:**
+**Standard Checklist:**
 - [ ] Unit tests pass: `npm test`
 - [ ] Type check passes: `npx tsc --noEmit`
 - [ ] Lint passes: `npm run lint`
@@ -89,33 +90,50 @@ Every change goes through these phases. The depth of each phase scales with risk
 
 ## Phase 5: Release
 
-**Goal:** Ship safely.
+**Goal:** Ship safely. See `_RELEASES.md` for full deployment procedures.
 
-### OTA Updates (JS-only changes)
+### Decision Tree
+
+```
+START: I made changes and want to release
+         │
+         ▼
+    Did I change native code?
+    (npm package with native, config, SDK)
+         │                    │
+        YES                   NO
+         │                    │
+         ▼                    ▼
+    Need new builds     Significant release?
+         │              (want version in Settings)
+         │                   │           │
+         │                  YES          NO
+         │                   │           │
+         ▼                   ▼           ▼
+    ┌─────────────┐   ┌─────────┐   ┌─────────┐
+    │ Bump version│   │ Bump    │   │ Just    │
+    │ Build both  │   │ version │   │ push    │
+    │ Submit      │   │ Build   │   │ OTA     │
+    └─────────────┘   └─────────┘   └─────────┘
+```
+
+### Quick Reference
+
 ```bash
-# Preview first
+# OTA Update (JS-only changes)
 npx eas-cli update --channel preview --message "description"
-
-# Then production
 npx eas-cli update --channel production --message "description"
-```
 
-### Native Builds (native code changes)
-```bash
-# Build
+# Native Builds
 npx eas-cli build --profile production --platform all
-
-# Submit
 npx eas-cli submit --platform ios --latest
-```
 
-### Database Migrations
-```bash
-# Push migration
+# Database Migrations
 npx supabase db push
-
-# Verify
 npx supabase db diff
+
+# Edge Functions
+npx supabase functions deploy <function-name>
 ```
 
 ---
@@ -127,7 +145,7 @@ npx supabase db diff
 - [ ] Check error rates (Sentry, logs)
 - [ ] Verify user-facing behavior
 - [ ] Watch for 24 hours post-deploy
-- [ ] Update `_SESSION_MEMO.md` with deployment status
+- [ ] Update documentation if needed
 
 ---
 
@@ -147,7 +165,7 @@ Understand → Design (brief) → Implement → Verify (tests) → Release → M
 
 ### High Risk (auth, payments, schema changes)
 ```
-Understand → Design (detailed) → Review → Implement → Verify (full) → Preview → Release → Monitor
+Understand → Design (RFD) → Review → Implement → Verify (full) → Preview → Release → Monitor
 ```
 
 ---
@@ -159,12 +177,28 @@ Understand → Design (detailed) → Review → Implement → Verify (full) → 
 - Multiple valid approaches, unclear which is preferred
 - Change touches `_FRAGILE.md` danger zone
 - Estimated effort exceeds expectation
+- Requires new RFD or PRD
 
 ### When to proceed:
 - Clear requirements
 - Single obvious approach
 - Low-risk area
 - Covered by tests
+
+---
+
+## Documentation Updates
+
+### After Implementation:
+- Update `_ARCHITECTURE.md` if structure changed
+- Update `_SCHEMA.md` if database changed
+- Update `_FRAGILE.md` if new gotchas discovered
+- Create/update PRD if product requirements changed
+- Create/update RFD if technical design decisions made
+
+### After Release:
+- Update `_RELEASES.md` with deployment status
+- Add entry to `_RELEASE_NOTES.md`
 
 ---
 
@@ -175,6 +209,8 @@ Format:
 type(scope): description
 
 [optional body explaining why]
+
+Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 Types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`
@@ -192,4 +228,20 @@ feat(profile): add avatar upload
 
 ---
 
-*Follow this workflow. Adjust ceremony to risk.*
+## Git Tagging
+
+```bash
+# Tag a release
+git tag vX.Y.Z
+git push --tags
+
+# List recent tags
+git tag --sort=-version:refname | head -10
+
+# Commits since last release
+git log $(git describe --tags --abbrev=0)..HEAD --oneline
+```
+
+---
+
+*Follow this workflow. Adjust ceremony to risk. Document decisions.*
