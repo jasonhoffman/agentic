@@ -64,9 +64,25 @@
 
 ---
 
+## Type Safety
+
+- `as any` is a last resort — if you cast the same thing repeatedly, create a typed wrapper
+- Acceptable casts: test mocks, platform-specific code with documented @ts-ignore
+- Supabase query results: use typed helpers in lib/, not inline casts in components
+
+---
+
+## Multi-Tenant / Multi-Org
+
+- Org/tenant ID constants only in: scripts/, provider fallbacks, seed data
+- App runtime code must get org ID from context (useOrganization, currentOrg.id)
+- Never hardcode org IDs in components, hooks, or lib/ business logic
+
+---
+
 ## Red Flags
 
-- `as any` on Supabase results
+- `as any` on anything except test mocks
 - `.then()` without `.catch()`
 - Optimistic updates without rollback
 - Query invalidation keys that don't match
@@ -77,3 +93,4 @@
 - Direct DB/API client imports outside lib/
 - Files approaching 300 lines without a plan to split
 - Unused variables or imports
+- Hardcoded org/tenant IDs in app runtime code
