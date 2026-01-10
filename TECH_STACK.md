@@ -62,13 +62,6 @@ If you prefer to set everything up yourself, here's the complete checklist:
 | **Anthropic** | [console.anthropic.com](https://console.anthropic.com) | API Key | `ANTHROPIC_API_KEY` |
 | **Voyage AI** | [voyageai.com](https://www.voyageai.com) | API Key | `VOYAGE_API_KEY` |
 
-### Optional (for web hosting)
-
-| Service | Sign Up | What You Need | Where It Goes |
-|---------|---------|---------------|---------------|
-| **Cloudflare** | [cloudflare.com](https://cloudflare.com) | API Token | `CLOUDFLARE_API_TOKEN` |
-| **Vercel** | [vercel.com](https://vercel.com) | API Token | `VERCEL_TOKEN` |
-
 ### Step-by-Step
 
 #### 1. Expo (required for mobile)
