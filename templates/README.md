@@ -18,6 +18,7 @@ You'll have:
 your-project/
 ├── CLAUDE.md                        # Project context for AI assistants
 └── docs/
+    ├── _NEXT_SESSION_MEMO.md        # Session continuity (update every session)
     ├── _ARCHITECTURE.md             # Technical architecture & decisions
     ├── _DEV_SETUP.md                # Development environment setup
     ├── _FRAGILE.md                  # Danger zones and gotchas
@@ -45,6 +46,7 @@ Also available in root templates:
 | File | Purpose | Who Updates |
 |------|---------|-------------|
 | `CLAUDE.md` | Project context for AI assistants | You (when focus shifts) |
+| `_NEXT_SESSION_MEMO.md` | Session continuity — "I'm going to sleep" doc | End of every session |
 | `_ARCHITECTURE.md` | Tech stack, structure, decisions | Engineers |
 | `_DEV_SETUP.md` | Environment setup guide | Engineers |
 | `_FRAGILE.md` | Danger zones, gotchas, edge cases | Anyone who discovers issues |
@@ -66,11 +68,19 @@ Also available in root templates:
 
 ## After Copying
 
+**Day 1:**
 1. **Fill in `CLAUDE.md`** — Project name, one-liner, current focus
-2. **Fill in `_VISION.md`** — Describe what you're building and why
-3. **Fill in `_ARCHITECTURE.md`** — Document your tech stack
-4. **Set up `_DEV_SETUP.md`** — Guide for new developers
-5. **Create first PRD/RFD** — When planning features
+2. **Start `_FRAGILE.md`** — Empty is fine; add gotchas as you discover them
+3. **Start `_NEXT_SESSION_MEMO.md`** — Update at end of first session
+
+**Week 1:**
+4. **Fill in `_ARCHITECTURE.md`** — Document your tech stack as you build
+5. **Fill in `_SCHEMA.md`** — Database tables and relationships
+
+**As needed:**
+6. **Fill in `_VISION.md`** — Describe what you're building and why
+7. **Set up `_DEV_SETUP.md`** — Guide for new developers
+8. **Create first PRD/RFD** — When planning features
 
 ---
 
@@ -109,6 +119,46 @@ status: draft|approved|in_progress|shipped|implemented|superseded
 3. **Use templates** — Start from PRD/RFD templates for consistency
 4. **Version awareness** — Note version numbers in docs when relevant
 5. **Avoid duplication** — Single source of truth for each topic
+
+---
+
+## Skill Integration
+
+Templates work with agentic skills:
+
+| Skill | Uses These Templates |
+|-------|---------------------|
+| `/sup` | Reads `_NEXT_SESSION_MEMO.md` for session context |
+| `/wrap` | Updates `_NEXT_SESSION_MEMO.md` at session end |
+| `/fragile` | Reads `_FRAGILE.md` to check danger zones |
+| `/plan` | References `_ARCHITECTURE.md` and `_FRAGILE.md` during exploration |
+| `/research` | Explores all docs in forked context |
+
+**Workflow integration:**
+- `/sup` → Read session memo → Work → `/fragile` (before risky changes) → `/wrap`
+- `/plan` or `/feature-dev` for non-trivial features → PRD/RFD as needed
+
+---
+
+## MCP Configuration (Optional)
+
+For team-shared integrations, create `.mcp.json` at project root:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+Common servers:
+- **context7** — Live framework documentation
+- **github** — GitHub integration for issues/PRs
+- **supabase** — Database schema inspection
 
 ---
 

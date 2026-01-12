@@ -2,6 +2,11 @@
 
 The default stack. Move fast without piecing things together.
 
+> **How to use this doc:**
+> - **For new projects:** Reference this when bootstrapping. Chief of Staff knows this stack.
+> - **For existing projects:** Your stack goes in `docs/_ARCHITECTURE.md`, not here.
+> - **This is a reference**, not a template to copy. It documents the recommended defaults.
+
 ---
 
 ## The Easy Way

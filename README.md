@@ -53,6 +53,33 @@ cp MEMORY.md ~/.claude/CLAUDE.me
 
 ---
 
+## Template Growth Trajectory
+
+Don't fill everything day one. Templates grow with your project:
+
+**Day 1 (bootstrap)**
+- `CLAUDE.md` — What is this? What's the stack?
+- `_FRAGILE.md` — Start empty, add gotchas as you discover them
+
+**Week 1 (shipping code)**
+- `_ARCHITECTURE.md` — Document decisions as you make them
+- `_SCHEMA.md` — Database tables and relationships
+- `_NEXT_SESSION_MEMO.md` — Start updating at end of each session
+
+**Month 1 (features accumulating)**
+- `PRD/` — Product requirements for major features
+- `RFD/` — Technical designs for complex implementations
+- `_DEV_SETUP.md` — When onboarding becomes non-trivial
+
+**Ongoing (production)**
+- `_RELEASE_NOTES.md` — Update per version
+- `_FRAGILE.md` — Add danger zones after incidents
+- `_NEXT_SESSION_MEMO.md` — Update every session
+
+Real projects hit 30,000+ lines of documentation supporting 180,000 lines of code. The templates scale.
+
+---
+
 ## Files
 
 | File | Purpose |
@@ -61,6 +88,7 @@ cp MEMORY.md ~/.claude/CLAUDE.me
 | `MEMORY.md` | Behavioral constraints to add to `/memory` |
 | `templates/CLAUDE.md` | Project-specific context template |
 | `templates/_FRAGILE.md` | Danger zone documentation template |
+| `templates/_NEXT_SESSION_MEMO.md` | Session continuity — "I'm going to sleep" doc |
 | `templates/_VOCABULARY.md` | Canonical terms (optional) |
 | `templates/_DEVELOPMENT_WORKFLOW.md` | Change process (optional) |
 
@@ -73,6 +101,9 @@ cp MEMORY.md ~/.claude/CLAUDE.me
 | `/wrap` | End of session — update docs, commit |
 | `/sup` | Quick 5-second status |
 | `/fragile` | Review danger zones before changes |
+| `/plan` | Two-phase workflow — explore read-only, then implement |
+| `/research` | Deep exploration in forked context (doesn't pollute main conversation) |
+| `/e2e` | Chrome integration for click-through testing |
 
 ---
 
@@ -88,11 +119,44 @@ cp MEMORY.md ~/.claude/CLAUDE.me
 
 ---
 
-## When to Use /feature-dev
+## When to Use Which Skill
 
-For complex features that need full ceremony — 7 phases with checkpoints. Claude drives, you approve.
+| Situation | Skill |
+|-----------|-------|
+| Complex feature, need full ceremony | `/feature-dev` |
+| Non-trivial feature, need plan approval | `/plan` |
+| Deep codebase exploration | `/research` |
+| Quick status check | `/sup` |
+| Before touching risky code | `/fragile` |
+| End of session | `/wrap` |
+| E2E click-through testing | `/e2e` |
 
-For everything else, just work together. The Chief of Staff identity knows when to go deeper.
+For simple tasks, just work together. The Chief of Staff identity knows when to go deeper.
+
+---
+
+## Claude Code v2.1.5 Integration
+
+This framework leverages native Claude Code capabilities:
+
+**Delegation patterns** — Route tasks to appropriate subagents:
+- `Task(Explore)` for codebase scanning (fast, cheap, read-only)
+- `Task(Plan)` for architecture before implementation
+- `Task(general-purpose)` for multi-step research + implementation
+
+**Forked contexts** — `/research` runs in isolated context:
+- Exploration doesn't pollute main conversation
+- Results summarized back to main thread
+
+**MCP integration** — Context7 for live documentation:
+- Use when framework APIs changed since training
+- Skip for well-established patterns
+
+**Background execution** — Long-running tasks don't block:
+- Builds, tests, migrations run in background
+- Continue working while they complete
+
+See `MEMORY.md` for detailed guidance on when to use each pattern.
 
 ---
 

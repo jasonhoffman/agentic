@@ -4,7 +4,7 @@ description: End of session — commit and summarize what shipped
 
 # /wrap — Session Closure
 
-End-of-session workflow.
+End-of-session workflow. The "I'm going to sleep" command.
 
 ## Steps
 
@@ -18,11 +18,18 @@ End-of-session workflow.
    - Clear commit message
    - Include Co-Authored-By line
 
-3. **Report**
+3. **Update session memo** (if `docs/_NEXT_SESSION_MEMO.md` exists)
+   - What shipped this session
+   - Current state (version, tests, build)
+   - In-progress items
+   - Next session priorities
+
+4. **Report**
    ```
    Wrapped:
    - [What was completed]
    - Commit: [hash] [message]
+   - Session memo updated
    ```
 
 ## Skip When
@@ -41,5 +48,9 @@ Completed:
 
 Commit: a1b2c3d - "feat(profiles): add user profile management"
 
-Next session: Hook up avatar upload
+Session memo updated:
+- Added to "What Just Shipped"
+- Next priorities: Avatar upload, profile settings
+
+Ready for next session.
 ```

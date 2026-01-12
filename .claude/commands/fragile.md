@@ -1,5 +1,6 @@
 ---
 description: Check danger zones before touching risky code — read _FRAGILE.md and warn
+allowed-tools: Read, Glob, Grep
 ---
 
 # /fragile — Danger Zone Check

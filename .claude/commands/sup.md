@@ -8,14 +8,16 @@ Fast context recovery. 5 seconds.
 
 ## Process
 
-1. Check `git status` for uncommitted work
-2. Check `git log --oneline -5` for recent commits
-3. Glance at _FRAGILE.md if it exists
+1. Check `docs/_NEXT_SESSION_MEMO.md` if exists (session context)
+2. Check `git status` for uncommitted work
+3. Check `git log --oneline -5` for recent commits
 
 ## Output
 
 ```
 Status:
+
+From last session: [Brief summary from memo, or "no memo"]
 
 Recent:
 - [Last few commits or "no recent commits"]
@@ -23,7 +25,7 @@ Recent:
 Working tree:
 - [Clean / X files modified]
 
-Next: [Suggested focus based on what you see]
+Next: [Priority from memo, or suggested focus]
 ```
 
 Keep it brief. 5-10 lines max.
