@@ -6,10 +6,20 @@ Copy these to your project to get started with comprehensive documentation.
 
 ## Quick Start
 
+### For React Native + Supabase Projects (Recommended)
+
 ```bash
 # From your project directory
-cp /path/to/templates/CLAUDE.md ./
-cp -r /path/to/templates/docs ./
+cp /path/to/agentic/templates/CLAUDE.md ./
+cp -r /path/to/agentic/templates/docs ./
+```
+
+### For Other Stacks
+
+```bash
+# Use the minimal template instead
+cp /path/to/agentic/templates/CLAUDE-minimal.md ./CLAUDE.md
+cp -r /path/to/agentic/templates/docs ./
 ```
 
 You'll have:
@@ -41,11 +51,25 @@ Also available in root templates:
 
 ## What Each File Does
 
+### Project Context Files
+
+**`CLAUDE.md`** (Comprehensive — React Native + Supabase)
+- Default template for React Native + Expo + Supabase projects
+- Includes architectural patterns, responsive layout guide, red flags table
+- Opinionated: assumes TypeScript, TanStack Query, RLS
+- Use when building with the default stack (see `TECH_STACK.md`)
+
+**`CLAUDE-minimal.md`** (Generic — Any Stack)
+- Minimal template for projects using different stacks
+- No assumptions about framework or database
+- Fill-in-the-blank format
+- Use when React Native/Supabase doesn't fit
+
 ### Core Documentation (`_*.md`)
 
 | File | Purpose | Who Updates |
 |------|---------|-------------|
-| `CLAUDE.md` | Project context for AI assistants | You (when focus shifts) |
+| `CLAUDE.md` | Comprehensive project instructions for AI | You (when project starts) |
 | `_NEXT_SESSION_MEMO.md` | Session continuity — "I'm going to sleep" doc | End of every session |
 | `_ARCHITECTURE.md` | Tech stack, structure, decisions | Engineers |
 | `_DEV_SETUP.md` | Environment setup guide | Engineers |
@@ -68,8 +92,19 @@ Also available in root templates:
 
 ## After Copying
 
+**If using comprehensive `CLAUDE.md` (React Native + Supabase):**
+- Template is pre-filled with architectural patterns
+- Review and remove sections that don't apply
+- Add project-specific details (project name, current focus)
+
+**If using minimal `CLAUDE.md` (other stacks):**
+- Fill in project name, stack, and key decisions
+- Add gotchas as you discover them
+
+**For all projects:**
+
 **Day 1:**
-1. **Fill in `CLAUDE.md`** — Project name, one-liner, current focus
+1. **Customize `CLAUDE.md`** — Project name, current focus, key decisions
 2. **Start `_FRAGILE.md`** — Empty is fine; add gotchas as you discover them
 3. **Start `_NEXT_SESSION_MEMO.md`** — Update at end of first session
 

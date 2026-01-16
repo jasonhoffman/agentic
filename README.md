@@ -7,10 +7,11 @@ A minimal setup for Claude Code projects.
 ## What This Is
 
 A lightweight starting point:
-- **CLAUDE.md** — A simple identity ("Chief of Staff") that reads context and works with you
+- **CLAUDE.md** — Comprehensive project instructions for React Native + Supabase (or use CLAUDE-minimal.md for other stacks)
 - **MEMORY.md** — Behavioral constraints to copy into `/memory`
 - **_FRAGILE.md** — Template for documenting danger zones in your codebase
 - **Skills** — `/wrap`, `/sup`, `/fragile` for session hygiene
+- **Project patterns** — Data modeling templates for specialized projects
 
 That's it. No heavy frameworks, role catalogs, or coordination protocols.
 
@@ -47,7 +48,19 @@ cp MEMORY.md ~/.claude/CLAUDE.me
 
 ```
 
-**2. For new projects** — Copy `templates/CLAUDE.md` and `templates/_FRAGILE.md` to your project.
+**2. For new projects** — Choose your template:
+
+React Native + Supabase projects (default stack):
+```bash
+cp ~/.agentic/templates/CLAUDE.md ./
+cp ~/.agentic/templates/_FRAGILE.md ./docs/
+```
+
+Other stacks (minimal template):
+```bash
+cp ~/.agentic/templates/CLAUDE-minimal.md ./CLAUDE.md
+cp ~/.agentic/templates/_FRAGILE.md ./docs/
+```
 
 **3. Start working** — Say "hi" and go.
 
@@ -84,9 +97,10 @@ Real projects hit 30,000+ lines of documentation supporting 180,000 lines of cod
 
 | File | Purpose |
 |------|---------|
-| `CLAUDE.md` | Chief of Staff identity — minimal instructions |
+| `CLAUDE.md` | Chief of Staff identity for agentic repo |
 | `MEMORY.md` | Behavioral constraints to add to `/memory` |
-| `templates/CLAUDE.md` | Project-specific context template |
+| `templates/CLAUDE.md` | Comprehensive template (React Native + Supabase) |
+| `templates/CLAUDE-minimal.md` | Minimal template (any stack) |
 | `templates/_FRAGILE.md` | Danger zone documentation template |
 | `templates/_NEXT_SESSION_MEMO.md` | Session continuity — "I'm going to sleep" doc |
 | `templates/_VOCABULARY.md` | Canonical terms (optional) |
