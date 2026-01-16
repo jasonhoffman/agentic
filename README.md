@@ -1,156 +1,174 @@
 # Agentic
 
-A minimal setup for Claude Code projects.
+> Minimal Claude Code setup for React Native + Supabase projects
+
+Build production-ready mobile apps with Claude from day one. No heavy frameworks, just proven patterns and automation.
 
 ---
 
-## What This Is
+## What You Get
 
-A lightweight starting point:
-- **CLAUDE.md** — Comprehensive project instructions for React Native + Supabase (or use CLAUDE-minimal.md for other stacks)
-- **MEMORY.md** — Behavioral constraints to copy into `/memory`
-- **_FRAGILE.md** — Template for documenting danger zones in your codebase
-- **Skills** — `/wrap`, `/sup`, `/fragile` for session hygiene
-- **Project patterns** — Data modeling templates for specialized projects
+**For React Native + Supabase projects:**
+- **Comprehensive CLAUDE.md** — Architecture patterns, responsive layout, red flags
+- **Automated `/lib` setup** — One script creates complete data layer structure
+- **Responsive layout system** — iPhone/iPad/web support from first commit
+- **Initialization audit** — Find and fix violations before they spread
+- **Data modeling patterns** — For projection/scenario-heavy apps
 
-That's it. No heavy frameworks, role catalogs, or coordination protocols.
-
----
-
-## Why It's Minimal
-
-Claude Code v2.x internalized most of what older frameworks tried to provide:
-- Better memory (3x improvement)
-- LSP integration (less hallucination)
-- Skill hot-reloading
-- Forked sub-agents
-
-Heavy instruction sets are now overhead. Short prompts + letting Claude work beats long role definitions.
+**For any stack:**
+- **Minimal CLAUDE.md** — Generic template for non-React-Native projects
+- **Session hygiene skills** — `/wrap`, `/sup`, `/fragile`, `/research`
+- **Documentation templates** — Scale from prototype to production
 
 ---
 
 ## Quick Start
 
+### Installation
+
 ```bash
 git clone https://github.com/jasonhoffman/agentic ~/.agentic
 ```
 
-**1. Set up memory** — Copy contents of `MEMORY.md` into your Claude Code memory:
-```
-/memory add
-[paste the standards from MEMORY.md]
+### Setup Memory (One Time)
 
-```
-or 
+Copy development standards to Claude Code memory:
 
-```
-cp MEMORY.md ~/.claude/CLAUDE.me
-
-```
-
-**2. For new projects** — Choose your template:
-
-React Native + Supabase projects (default stack):
 ```bash
+cp ~/.agentic/MEMORY.md ~/.claude/CLAUDE.md
+```
+
+Or use `/memory add` and paste the contents.
+
+---
+
+## For React Native + Supabase Projects
+
+### 1. Copy Templates
+
+```bash
+cd your-project
 cp ~/.agentic/templates/CLAUDE.md ./
 cp ~/.agentic/templates/_FRAGILE.md ./docs/
 ```
 
-Then scaffold the `/lib` structure:
+### 2. Scaffold /lib Structure
+
 ```bash
 cp ~/.agentic/templates/scaffold-lib.sh ./
 chmod +x scaffold-lib.sh
 ./scaffold-lib.sh
 ```
 
-Then run initialization audit:
+This creates in < 1 second:
+- `lib/config/env.ts` — Centralized environment variables
+- `lib/supabase/client.ts` — Single Supabase instance + helpers
+- `lib/queries/keys.ts` — TanStack Query key factories
+- `lib/hooks/useAuth.ts` — Complete auth hook with Google OAuth
+- `lib/layout/` — Responsive layout foundation
+- `docs/` — Architecture and fragile areas documentation
+
+### 3. Complete Setup with Claude
+
 ```
-I'm starting a new React Native + Expo + Supabase project. I've run scaffold-lib.sh. Please continue with the initialization phases in ~/.agentic/templates/PROJECT_INIT_RN_SUPABASE.md to audit the codebase and complete the setup.
+I'm starting a new React Native + Expo + Supabase project. I've run scaffold-lib.sh.
+Please continue with the initialization phases in ~/.agentic/templates/PROJECT_INIT_RN_SUPABASE.md
+to audit the codebase and complete the setup.
 ```
 
-Other stacks (minimal template):
+Claude will:
+- Generate database types from Supabase
+- Add remaining responsive layout files (LayoutShell, AdaptiveModal, etc.)
+- Verify no architecture violations
+- Create RLS policies documentation
+
+### 4. Start Building
+
+```
+Hi! Let's build [feature name].
+```
+
+---
+
+## For Other Stacks
+
 ```bash
+cd your-project
 cp ~/.agentic/templates/CLAUDE-minimal.md ./CLAUDE.md
 cp ~/.agentic/templates/_FRAGILE.md ./docs/
 ```
 
-**3. Start working** — Say "hi" and go.
+Then customize CLAUDE.md with your stack details.
 
 ---
 
-## Template Growth Trajectory
+## Key Features
 
-Don't fill everything day one. Templates grow with your project:
+### Responsive Layout System (CRITICAL)
 
-**Day 1 (bootstrap)**
-- `CLAUDE.md` — What is this? What's the stack?
-- `_FRAGILE.md` — Start empty, add gotchas as you discover them
+Multi-pane layouts for iPad and web from day one. Retrofitting later breaks navigation, state, and styling.
 
-**Week 1 (shipping code)**
-- `_ARCHITECTURE.md` — Document decisions as you make them
-- `_SCHEMA.md` — Database tables and relationships
-- `_NEXT_SESSION_MEMO.md` — Start updating at end of each session
+**Files:** `templates/RESPONSIVE_LAYOUT_SYSTEM.md`
 
-**Month 1 (features accumulating)**
-- `PRD/` — Product requirements for major features
-- `RFD/` — Technical designs for complex implementations
-- `_DEV_SETUP.md` — When onboarding becomes non-trivial
+**What you get:**
+- `useLayout()` — Hook for breakpoints (compact/medium/expanded)
+- `LayoutShell` — App wrapper with sidebar + detail pane
+- `useAdaptiveNavigation()` — Navigation that adapts to layout
+- `AdaptiveModal` — Modals that adapt to screen size
+- `ResponsiveGrid` — Auto-column grid
 
-**Ongoing (production)**
-- `_RELEASE_NOTES.md` — Update per version
-- `_FRAGILE.md` — Add danger zones after incidents
-- `_NEXT_SESSION_MEMO.md` — Update every session
+**Supports:**
+- iPhone: single column, stack navigation
+- iPad portrait: sidebar + main, stack navigation
+- iPad landscape: sidebar + list + detail pane (inline)
+- Web: responsive to browser width
 
-Real projects hit 30,000+ lines of documentation supporting 180,000 lines of code. The templates scale.
+### Initialization Audit
 
----
+**File:** `templates/PROJECT_INIT_RN_SUPABASE.md`
 
-## Files
+Five-phase audit and migration guide:
+1. **Audit** — Scan for violations (hardcoded IDs, scattered env vars, string query keys)
+2. **Establish /lib** — Create proper structure (or use scaffold script)
+3. **Migrate** — Fix all violations with grep scripts
+4. **Database** — RLS policies, SECURITY DEFINER helpers
+5. **Verify** — Run verification commands, complete checklist
 
-| File | Purpose |
-|------|---------|
-| `CLAUDE.md` | Chief of Staff identity for agentic repo |
-| `MEMORY.md` | Behavioral constraints to add to `/memory` |
-| `templates/CLAUDE.md` | Comprehensive template (React Native + Supabase) |
-| `templates/CLAUDE-minimal.md` | Minimal template (any stack) |
-| `templates/PROJECT_INIT_RN_SUPABASE.md` | Initialization guide with audit & migration steps |
-| `templates/RESPONSIVE_LAYOUT_SYSTEM.md` | Complete `/lib/layout` for iPhone/iPad/web (CRITICAL) |
-| `templates/scaffold-lib.sh` | Automated script to create `/lib` structure |
-| `templates/_FRAGILE.md` | Danger zone documentation template |
-| `templates/_NEXT_SESSION_MEMO.md` | Session continuity — "I'm going to sleep" doc |
-| `templates/_VOCABULARY.md` | Canonical terms (optional) |
-| `templates/_DEVELOPMENT_WORKFLOW.md` | Change process (optional) |
-
----
-
-## Project-Specific Templates
-
-Beyond general templates, agentic includes specialized project patterns:
-
-### Data Modeling Projects
+### Data Modeling Template
 
 **Location:** `templates/project-types/data-modeling/`
 
-For projects with:
-- Complex data projections and scenarios
-- Database-driven calculations
-- Verified claims with sources
-- Multi-scenario analysis
+For apps with projections, scenarios, verified claims:
+- Complete Supabase schema (claims, scenarios, projections, audit trail)
+- Single source of truth pattern (DB → models → hooks → components)
+- Verification scripts to catch violations
+- Seed data generation
 
-**What you get:**
-- Complete database schema (claims, scenarios, projections)
-- `/lib` structure with single source of truth pattern
-- TanStack Query integration with optimistic updates
-- Verification scripts to catch architecture violations
-- Seed data scripts
+**Use for:** Economic models, infrastructure planning, population projections, research platforms
 
-**When to use:**
-- Modeling applications (economic, infrastructure, population)
-- Research/analysis platforms
-- Tools with multiple scenario comparisons
-- Apps requiring audit trails for data changes
+---
 
-See [`templates/project-types/data-modeling/PROJECT_INITIATION.md`](templates/project-types/data-modeling/PROJECT_INITIATION.md) for the complete setup guide.
+## Files Reference
+
+| File | Purpose |
+|------|---------|
+| **Templates** | |
+| `templates/CLAUDE.md` | Comprehensive (React Native + Supabase) |
+| `templates/CLAUDE-minimal.md` | Minimal (any stack) |
+| `templates/scaffold-lib.sh` | Automated /lib structure creation |
+| `templates/PROJECT_INIT_RN_SUPABASE.md` | Initialization audit guide |
+| `templates/RESPONSIVE_LAYOUT_SYSTEM.md` | Complete responsive layout implementation |
+| **Documentation** | |
+| `templates/_FRAGILE.md` | Danger zones template |
+| `templates/_NEXT_SESSION_MEMO.md` | Session continuity |
+| `templates/_VOCABULARY.md` | Canonical terms |
+| `templates/_DEVELOPMENT_WORKFLOW.md` | Development phases |
+| **Project Types** | |
+| `templates/project-types/data-modeling/` | Data modeling patterns |
+| **Global** | |
+| `MEMORY.md` | Development standards for `/memory` |
+| `CLAUDE.md` | Chief of Staff identity for this repo |
+| `TECH_STACK.md` | Default stack reference |
 
 ---
 
@@ -158,66 +176,211 @@ See [`templates/project-types/data-modeling/PROJECT_INITIATION.md`](templates/pr
 
 | Command | What |
 |---------|------|
-| `/wrap` | End of session — update docs, commit |
+| `/wrap` | End session — update docs, commit |
 | `/sup` | Quick 5-second status |
-| `/fragile` | Review danger zones before changes |
-| `/plan` | Two-phase workflow — explore read-only, then implement |
-| `/research` | Deep exploration in forked context (doesn't pollute main conversation) |
-| `/e2e` | Chrome integration for click-through testing |
+| `/fragile` | Check danger zones before changes |
+| `/plan` | Two-phase workflow — plan, then implement |
+| `/research` | Deep exploration (forked context) |
+| `/e2e` | Chrome integration for testing |
+
+---
+
+## Architecture Principles
+
+**Single source of truth**
+- All env vars in `lib/config/env.ts`
+- All query keys in `lib/queries/keys.ts`
+- All formatters in `lib/constants/units.ts`
+- Components never import Supabase directly
+
+**Data flow**
+```
+Database → lib/supabase/queries → lib/models → lib/hooks → Components
+```
+
+**Context-based IDs**
+- No hardcoded org/tenant IDs in runtime code
+- Use `useOrganization()`, never `const orgId = 'org_123'`
+
+**Responsive from day one**
+- Use `useLayout()` not hardcoded widths
+- Use `useAdaptiveNavigation()` not `navigation.navigate`
+- Use `AdaptiveModal` not `presentationStyle="fullScreen"`
+
+**File size limits**
+- 300 lines max — split earlier
+- Data layer only in `lib/` — components are pure UI
 
 ---
 
 ## Philosophy
 
-**Use /memory for universal constraints** — lint rules, test requirements, anti-patterns. These persist across all projects.
+**Minimal by design**
 
-**Use _FRAGILE.md for project-specific danger zones** — RLS recursion, payment flows, auth edge cases. Document what breaks and how.
+Claude Code v2.x internalized most framework features:
+- Better memory (3x improvement)
+- LSP integration (less hallucination)
+- Skill hot-reloading
+- Forked sub-agents
 
-**Use CLAUDE.md for project context** — what you're building, current focus, key decisions. Keep it under a page.
+Heavy instruction sets are now overhead. Short prompts + context beats long role definitions.
 
-**Trust shorter prompts** — "add auth" often beats a detailed spec. Let Claude ask clarifying questions.
+**Use /memory for universal constraints**
+- Lint rules, test requirements, anti-patterns
+- Persist across all projects
+
+**Use _FRAGILE.md for project dangers**
+- RLS recursion, payment flows, auth edge cases
+- Document what breaks and how
+
+**Use CLAUDE.md for project context**
+- What you're building, current focus, key decisions
+- Keep it actionable
+
+**Trust shorter prompts**
+- "add auth" often beats a detailed spec
+- Let Claude ask clarifying questions
+- Document decisions as you make them
 
 ---
 
-## When to Use Which Skill
+## Documentation Growth
 
-| Situation | Skill |
-|-----------|-------|
-| Complex feature, need full ceremony | `/feature-dev` |
-| Non-trivial feature, need plan approval | `/plan` |
-| Deep codebase exploration | `/research` |
-| Quick status check | `/sup` |
-| Before touching risky code | `/fragile` |
-| End of session | `/wrap` |
-| E2E click-through testing | `/e2e` |
+Don't fill everything day one. Templates grow with your project:
 
-For simple tasks, just work together. The Chief of Staff identity knows when to go deeper.
+**Day 1 (bootstrap)**
+- `CLAUDE.md` — Stack and architecture
+- `_FRAGILE.md` — Start empty, add gotchas
+
+**Week 1 (shipping code)**
+- `_ARCHITECTURE.md` — Decisions as you make them
+- `_SCHEMA.md` — Database tables
+- `_NEXT_SESSION_MEMO.md` — Session handoffs
+
+**Month 1 (features)**
+- `PRD/` — Product requirements
+- `RFD/` — Technical designs
+- `_DEV_SETUP.md` — Onboarding guide
+
+**Production**
+- `_RELEASE_NOTES.md` — Version history
+- `_FRAGILE.md` — Danger zones from incidents
+- Comprehensive architecture docs
+
+Real projects hit 30,000+ lines of documentation supporting 180,000 lines of code.
 
 ---
 
-## Claude Code v2.1.5 Integration
+## Claude Code Integration
 
-This framework leverages native Claude Code capabilities:
-
-**Delegation patterns** — Route tasks to appropriate subagents:
+**Delegation patterns:**
 - `Task(Explore)` for codebase scanning (fast, cheap, read-only)
-- `Task(Plan)` for architecture before implementation
+- `Task(Plan)` for architecture decisions
 - `Task(general-purpose)` for multi-step research + implementation
 
-**Forked contexts** — `/research` runs in isolated context:
+**Forked contexts:**
+- `/research` runs in isolated context
 - Exploration doesn't pollute main conversation
-- Results summarized back to main thread
 
-**MCP integration** — Context7 for live documentation:
-- Use when framework APIs changed since training
-- Skip for well-established patterns
+**MCP integration:**
+- Context7 for live framework docs
+- Use when APIs changed since training
 
-**Background execution** — Long-running tasks don't block:
-- Builds, tests, migrations run in background
-- Continue working while they complete
+**Background execution:**
+- Builds, tests, migrations run async
+- Continue working while tasks complete
 
-See `MEMORY.md` for detailed guidance on when to use each pattern.
+See `MEMORY.md` for detailed guidance.
 
 ---
 
-MIT License
+## When to Use What
+
+| Situation | Tool |
+|-----------|------|
+| New React Native + Supabase project | Full stack (CLAUDE.md + scaffold-lib.sh + RESPONSIVE_LAYOUT_SYSTEM.md) |
+| Other stack project | Minimal template (CLAUDE-minimal.md) |
+| Data modeling app | Add data-modeling project type |
+| Existing project cleanup | PROJECT_INIT_RN_SUPABASE.md audit |
+| Complex feature | `/plan` → get approval → implement |
+| Deep codebase exploration | `/research` in forked context |
+| Before touching auth/payments/RLS | `/fragile` |
+| End of session | `/wrap` |
+
+---
+
+## Examples
+
+### React Native + Supabase Startup
+
+```bash
+# Clone agentic
+git clone https://github.com/jasonhoffman/agentic ~/.agentic
+
+# Create project
+npx create-expo-app my-app --template expo-template-blank-typescript
+cd my-app
+
+# Copy templates
+cp ~/.agentic/templates/CLAUDE.md ./
+cp ~/.agentic/templates/_FRAGILE.md ./docs/
+
+# Scaffold /lib
+cp ~/.agentic/templates/scaffold-lib.sh ./
+./scaffold-lib.sh
+
+# Tell Claude
+# "I've scaffolded /lib. Complete the setup per PROJECT_INIT_RN_SUPABASE.md"
+```
+
+### Data Modeling App
+
+Same as above, plus:
+
+```bash
+# Copy data modeling template
+cp ~/.agentic/templates/project-types/data-modeling/PROJECT_INITIATION.md ./docs/
+```
+
+Tell Claude:
+```
+Follow docs/PROJECT_INITIATION.md to set up the data architecture.
+```
+
+### Generic Project
+
+```bash
+git clone https://github.com/jasonhoffman/agentic ~/.agentic
+cd your-project
+
+cp ~/.agentic/templates/CLAUDE-minimal.md ./CLAUDE.md
+cp ~/.agentic/templates/_FRAGILE.md ./docs/
+
+# Edit CLAUDE.md with your stack details
+```
+
+---
+
+## Contributing
+
+Have a proven pattern? Consider adding:
+1. New project type in `templates/project-types/`
+2. Skill in `.claude/commands/`
+3. Verification script
+4. Update this README
+
+Keep it minimal. Only add what's genuinely reusable.
+
+---
+
+## License
+
+MIT
+
+---
+
+## Links
+
+- [Claude Code](https://claude.com/claude-code)
+- [Tech Stack Reference](TECH_STACK.md)
+- [Development Standards](MEMORY.md)
