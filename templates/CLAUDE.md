@@ -4,6 +4,8 @@
 
 **New project?** Run the initialization audit first: see `PROJECT_INIT_RN_SUPABASE.md` for step-by-step setup and architecture migration.
 
+**CRITICAL:** Set up responsive layout from day one: see `RESPONSIVE_LAYOUT_SYSTEM.md` for complete `/lib/layout` implementation. Retrofitting multi-pane layouts later breaks navigation, state, and styling.
+
 ---
 
 ## Stack
@@ -141,6 +143,10 @@ useQuery({ queryKey: queryKeys.org.byId(orgId) });
 
 **Never assume single-column.** iPad multi-pane and web layouts must work from the first commit.
 
+**→ See `RESPONSIVE_LAYOUT_SYSTEM.md` for complete implementation.**
+
+Quick reference:
+
 ```typescript
 // lib/hooks/useLayout.ts — REQUIRED in every project
 import { useWindowDimensions } from 'react-native';
@@ -261,10 +267,10 @@ export function useAdaptiveNavigation() {
 | Hardcoded org/tenant IDs in runtime | Use context |
 | "aggressive" / "conservative" terminology | Use neutral terms |
 | Duplicate formatTokens() / formatPower() | Import from lib/constants/units |
-| `navigation.navigate` in list items | Use `useAdaptiveNavigation` |
+| `navigation.navigate` in list items | Use `useAdaptiveNavigation` (see RESPONSIVE_LAYOUT_SYSTEM.md) |
 | `width: [fixed number]` without useLayout | Won't adapt to iPad/web |
-| `<Modal presentationStyle="fullScreen">` | Use `AdaptiveModal` |
-| No `useLayout` in screen component | Probably not responsive |
+| `<Modal presentationStyle="fullScreen">` | Use `AdaptiveModal` (see RESPONSIVE_LAYOUT_SYSTEM.md) |
+| No `useLayout` in screen component | Probably not responsive - add from layout system |
 
 ---
 

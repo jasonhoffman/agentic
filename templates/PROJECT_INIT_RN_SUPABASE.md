@@ -96,9 +96,19 @@ lib/
 ├── models/
 │   ├── types.ts            # Shared business types
 │   └── [domain].ts         # Domain logic (pure functions)
+├── layout/                 # CRITICAL: Set up from day one
+│   ├── constants.ts        # Breakpoints, widths, touch targets
+│   ├── useLayout.ts        # Layout mode hook
+│   ├── LayoutShell.tsx     # App-level layout wrapper
+│   ├── useAdaptiveNavigation.ts  # Navigation that adapts to layout
+│   ├── AdaptiveModal.tsx   # Modals that adapt to screen size
+│   ├── ResponsiveGrid.tsx  # Auto-column grid
+│   └── index.ts            # Exports
 └── hooks/
     └── [domain].ts         # Domain-specific React hooks
 ```
+
+**→ See `RESPONSIVE_LAYOUT_SYSTEM.md` for complete `/lib/layout` implementation.**
 
 ### 2.2 Create `/lib/config/env.ts`
 
@@ -420,6 +430,7 @@ docs/
 - [ ] /lib/supabase/client.ts - single supabase instance
 - [ ] /lib/supabase/types.ts - generated database types
 - [ ] /lib/queries/keys.ts - query key factories
+- [ ] /lib/layout/ - responsive layout system (see RESPONSIVE_LAYOUT_SYSTEM.md)
 - [ ] /lib/hooks/ - domain hooks
 
 ### Migrations Done

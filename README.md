@@ -107,6 +107,7 @@ Real projects hit 30,000+ lines of documentation supporting 180,000 lines of cod
 | `templates/CLAUDE.md` | Comprehensive template (React Native + Supabase) |
 | `templates/CLAUDE-minimal.md` | Minimal template (any stack) |
 | `templates/PROJECT_INIT_RN_SUPABASE.md` | Initialization guide with audit & migration steps |
+| `templates/RESPONSIVE_LAYOUT_SYSTEM.md` | Complete `/lib/layout` for iPhone/iPad/web (CRITICAL) |
 | `templates/_FRAGILE.md` | Danger zone documentation template |
 | `templates/_NEXT_SESSION_MEMO.md` | Session continuity — "I'm going to sleep" doc |
 | `templates/_VOCABULARY.md` | Canonical terms (optional) |

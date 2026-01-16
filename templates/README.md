@@ -73,6 +73,13 @@ Also available in root templates:
 - Database setup and RLS verification
 - Use at project start or when refactoring existing projects
 
+**`RESPONSIVE_LAYOUT_SYSTEM.md`** (Layout System — CRITICAL)
+- Complete `/lib/layout` implementation for iPhone/iPad/web
+- Build multi-pane layouts from day one, not retroactively
+- `useLayout`, `LayoutShell`, `useAdaptiveNavigation`, `AdaptiveModal`
+- Testing checklist, red flags, common mistakes
+- **Copy these files immediately when starting a project**
+
 ### Core Documentation (`_*.md`)
 
 | File | Purpose | Who Updates |
