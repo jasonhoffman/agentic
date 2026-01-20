@@ -30,15 +30,15 @@ Build production-ready mobile apps with Claude from day one. No heavy frameworks
 git clone https://github.com/jasonhoffman/agentic ~/.agentic
 ```
 
-### Setup Memory (One Time)
+### Setup Global Standards (One Time)
 
-Copy development standards to Claude Code memory:
+Symlink development standards to Claude Code:
 
 ```bash
-cp ~/.agentic/MEMORY.md ~/.claude/CLAUDE.md
+ln -s ~/.agentic/MEMORY.md ~/.claude/CLAUDE.md
 ```
 
-Or use `/memory add` and paste the contents.
+Changes to MEMORY.md are now automatically reflected globally.
 
 ---
 
@@ -167,7 +167,7 @@ For apps with projections, scenarios, verified claims:
 | **Project Types** | |
 | `templates/project-types/data-modeling/` | Data modeling patterns |
 | **Global** | |
-| `MEMORY.md` | Development standards for `/memory` |
+| `MEMORY.md` | Global development standards (symlinked to `~/.claude/CLAUDE.md`) |
 | `CLAUDE.md` | Chief of Staff identity for this repo |
 | `TECH_STACK.md` | Default stack reference |
 
@@ -298,7 +298,7 @@ Real projects hit 30,000+ lines of documentation supporting 180,000 lines of cod
 - Builds, tests, migrations run async
 - Continue working while tasks complete
 
-See `MEMORY.md` for detailed guidance.
+See `MEMORY.md` for detailed guidance (loaded globally via symlink).
 
 ---
 
