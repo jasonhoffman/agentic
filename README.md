@@ -1,5 +1,7 @@
 # Agentic
 
+> Fundamentally just me finding my way in the wilderness post claude-code 2.1.x and keeping notes, probability of there being something materially better is very high
+ 
 > Minimal Claude Code setup for React Native + Supabase projects
 
 Build production-ready mobile apps with Claude from day one. No heavy frameworks, just proven patterns and automation.
