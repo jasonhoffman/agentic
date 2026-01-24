@@ -1,6 +1,7 @@
 # Agentic
 
 > Fundamentally just me finding my way in the wilderness post claude-code 2.1.x and keeping notes, probability of there being something materially better is very high
+> Right now I'm stress testing https://github.com/glittercowboy/get-shit-done because well it is likely more mature and better than my fcuking around.
  
 > Minimal Claude Code setup for React Native + Supabase projects
 
