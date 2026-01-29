@@ -23,7 +23,6 @@
 ## Before Any Change
 
 - Run lint and tests first — never break them
-- Check _FRAGILE.md for danger zones
 - Auth/payments/RLS: extra review required
 - Don't refactor code you weren't asked to touch
 - Don't add features beyond what's asked
