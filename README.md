@@ -10,7 +10,7 @@ Understanding AI collaboration. The tools already exist: Claude Code, terminal, 
 
 - `docs/dialogues/` — patterns observed, lessons earned
 - `USE-AS-GLOBAL-CLAUDE.md` — development standards for `~/.claude/CLAUDE.md`
-- `templates/` — practical bootstrapping for React Native + Supabase
+- `human-instructions.md` + `scaffold-lib.sh` — practical bootstrapping
 
 ---
 
@@ -27,11 +27,11 @@ ln -s ~/.agentic/USE-AS-GLOBAL-CLAUDE.md ~/.claude/CLAUDE.md
 
 ```bash
 cd your-project
-cp ~/.agentic/templates/scaffold-lib.sh ./
+cp ~/.agentic/scaffold-lib.sh ./
 ./scaffold-lib.sh
 ```
 
-See `templates/human-instructions.md` for complete setup checklist.
+See `human-instructions.md` for complete setup checklist.
 
 ---
 
@@ -42,8 +42,8 @@ See `templates/human-instructions.md` for complete setup checklist.
 | `CLAUDE.md` | Instructions for working in this repo |
 | `USE-AS-GLOBAL-CLAUDE.md` | Global standards (symlink to `~/.claude/CLAUDE.md`) |
 | `docs/dialogues/` | Conversations that shaped the understanding |
-| `templates/human-instructions.md` | Human setup checklist |
-| `templates/scaffold-lib.sh` | Creates /lib structure |
+| `human-instructions.md` | Human setup checklist |
+| `scaffold-lib.sh` | Creates /lib structure |
 
 ---
 
