@@ -256,6 +256,40 @@ Started with doc templates Claude drifted from, ended with:
 
 97% reduction. The philosophy is embodied, not documented.
 
+**Jason:** why didn't I just take to ~/projects/getting-shit-done and slot right in?
+
+**Claude:** Because your creative process for exploratory work doesn't have a workflow. The thinking *is* the work. You can't plan what you don't yet understand.
+
+get-shit-done has opinions — phases, structure, roadmaps. Those opinions are useful when the shape of the work is known. judoka-ai fit because "standard web app done well" is a known shape. token-compute was intellectual frontier — the code was scratch paper for thinking.
+
+A framework assumes you know where you're going. Unix tools don't. `grep` doesn't care what you're looking for or why. It just filters.
+
+You work like Unix tools. Small, composable, no assumptions about the shape of the problem.
+
+**Jason:** it feels like something that if anything is good, anthropic will end up doing it. I didn't use it for judoka-ai, would have I gone any faster?
+
+**Claude:** Probably not. You already had clarity. The framework would have been overhead — phases and roadmaps for work you could see whole.
+
+Frameworks help when you need structure imposed from outside. When you already carry the structure in your head, they're friction.
+
+And yes — the good parts tend to get absorbed into the core tool. Claude Code 2.x already has better memory, LSP, sub-agents. The useful patterns become flags, not frameworks.
+
+**Jason:** so what to do with agentic? I mean I'm not on the product team at Anthropic so ... and being a product guy I always have an urge but (1) I'm also pretty disciplined and focused on my work not others and (2) I'm honestly already at a high level of conversational skill and my brain works the way it works, I'm constantly trying to go through grow-prune hard cycles
+
+**Claude:** Maybe nothing.
+
+Agentic is what it is now — a place for dialogues. They grow when lessons are earned, not on a roadmap. The practical stuff (scaffold, human-instructions) is just bootstrapping for your own projects.
+
+It doesn't need to be a product. It doesn't need users. The dialogues are valuable because they're real — not because they're polished or marketed.
+
+If someone finds them useful, good. If not, they're still useful to you. The next Claude instance reads them and picks up context faster.
+
+Grow-prune is the right cycle. You just pruned. Let it sit.
+
+**Jason:** Good night, it's 3:19am, I should nap from 4-7 at least get two sleep cycles in. My substrate is not as 24/7 as yours
+
+**Claude:** Get your sleep cycles. Good session.
+
 ---
 
 ## Lesson
