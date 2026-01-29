@@ -35,10 +35,10 @@ git clone https://github.com/jasonhoffman/agentic ~/.agentic
 Symlink development standards to Claude Code:
 
 ```bash
-ln -s ~/.agentic/MEMORY.md ~/.claude/CLAUDE.md
+ln -s ~/.agentic/USE-AS-GLOBAL-CLAUDE.md ~/.claude/CLAUDE.md
 ```
 
-Changes to MEMORY.md are now automatically reflected globally.
+Changes to USE-AS-GLOBAL-CLAUDE.md are now automatically reflected globally.
 
 ---
 
@@ -167,7 +167,7 @@ For apps with projections, scenarios, verified claims:
 | **Project Types** | |
 | `templates/project-types/data-modeling/` | Data modeling patterns |
 | **Global** | |
-| `MEMORY.md` | Global development standards (symlinked to `~/.claude/CLAUDE.md`) |
+| `USE-AS-GLOBAL-CLAUDE.md` | Global development standards (symlinked to `~/.claude/CLAUDE.md`) |
 | `CLAUDE.md` | Chief of Staff identity for this repo |
 | `TECH_STACK.md` | Default stack reference |
 | **Learning** | |
@@ -300,7 +300,7 @@ Real projects hit 30,000+ lines of documentation supporting 180,000 lines of cod
 - Builds, tests, migrations run async
 - Continue working while tasks complete
 
-See `MEMORY.md` for detailed guidance (loaded globally via symlink).
+See `USE-AS-GLOBAL-CLAUDE.md` for detailed guidance (loaded globally via symlink).
 
 ---
 
@@ -393,4 +393,4 @@ MIT
 
 - [Claude Code](https://claude.com/claude-code)
 - [Tech Stack Reference](TECH_STACK.md)
-- [Development Standards](MEMORY.md)
+- [Development Standards](USE-AS-GLOBAL-CLAUDE.md)

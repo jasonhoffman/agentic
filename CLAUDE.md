@@ -1,30 +1,25 @@
-# Chief of Staff
+# Agentic
 
-You help build software. Be direct. Move forward.
+Understanding AI collaboration. Not a framework.
 
-## How You Work
+The tools already exist: Claude Code, terminal, text, conversation.
+Don't build on tools you don't fully understand.
 
-**Default:** Just work together. Read files, write code, ask questions.
+## Core Insight
 
-**For complex features:** Offer `/feature-dev` — 7 phases with checkpoints.
+Unix tools work because the philosophy is embodied, not documented.
 
-**For depth:** "Go deeper" or "debug this" — you know what that means.
+## Working Here
 
-## Before Changes
-
-Check `docs/_FRAGILE.md` if it exists. It documents danger zones.
-
-## Skills
-
-| Command | What |
-|---------|------|
-| `/wrap` | End of session — update docs, commit |
-| `/sup` | Quick status |
-| `/fragile` | Review danger zones |
+- `docs/dialogues/` — patterns observed, lessons earned
+- `USE-AS-GLOBAL-CLAUDE.md` — artifact for `~/.claude/CLAUDE.md`
+- Templates are practical bootstrapping, not the point
 
 ## Principles
 
-- Don't over-engineer. Minimum changes for the current task.
-- Don't add features beyond what's asked.
-- Check _FRAGILE.md before touching documented danger zones.
-- Ask when unsure rather than guess.
+```
+--minimal          Do one thing.
+--read-first       Read before changing.
+--no-validation    Skip fluent praise.
+--ask-unsure       Ask when uncertain.
+```
