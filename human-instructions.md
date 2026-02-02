@@ -142,17 +142,14 @@ The MCP servers try Vault first, fall back to dotenvx/.env automatically.
 
 1. Create account at https://modal.com
 
-2. Install Python (if needed):
+2. Install Modal:
 ```bash
 # macOS
-brew install python
+brew install pipx
+pipx install modal
 
 # Ubuntu/WSL
 sudo apt update && sudo apt install python3 python3-pip
-```
-
-3. Install Modal:
-```bash
 pip install modal
 ```
 
