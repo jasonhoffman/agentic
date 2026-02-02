@@ -11,7 +11,6 @@ Unix tools work because the philosophy is embodied, not documented.
 
 ## Working Here
 
-- `docs/dialogues/` — patterns observed, lessons earned
 - `USE-AS-GLOBAL-CLAUDE.md` — artifact for `~/.claude/CLAUDE.md`
 - Templates are practical bootstrapping, not the point
 
