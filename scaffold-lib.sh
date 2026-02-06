@@ -420,7 +420,7 @@ scripts/                # Build/seed scripts
 2. **Data layer isolation**: Components never import Supabase directly
 3. **Query key factories**: No string literal query keys
 4. **Context-based IDs**: No hardcoded org/tenant IDs in runtime code
-5. **300 line limit**: Split files before they grow too large
+5. **Focused modules**: Split files when they lose cohesion, not at arbitrary line counts
 EOF
 echo "✅ Created docs/ARCHITECTURE.md"
 fi
