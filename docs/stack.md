@@ -111,6 +111,8 @@ Two MCPs. Claude Code is the end user.
 - [x] `supabase/get_api_key.sql` — Vault function for secure key access
 - [x] `USE-AS-GLOBAL-CLAUDE.md` — Development standards
 - [x] `scaffold-lib.sh` — React Native + Supabase /lib structure
+- [x] Claude Code auto-memory — built-in session continuity (replaces _NEXT_SESSION_MEMO.md)
+- [x] Agent teams — task decomposition across specialized sub-agents (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`)
 
 ## Need
 

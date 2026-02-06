@@ -34,9 +34,9 @@ Lightweight spec for planning work.
 |----------|--------|-----|
 | [Topic] | [Choice] | [Rationale] |
 
-## Danger Zones
+## Risks
 
-[Any overlap with _FRAGILE.md areas?]
+[Any areas requiring extra care — auth, payments, RLS?]
 ```
 
 ## Keep It Simple

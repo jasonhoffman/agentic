@@ -44,7 +44,7 @@ const MODELS = {
   },
   gemini: {
     default: "gemini-3-pro-preview",
-    available: ["gemini-3-pro-preview", "gemini-2.5-pro", "gemini-2.5-flash"],
+    available: ["gemini-3-pro-preview", "gemini-3-flash-preview", "gemini-2.5-pro", "gemini-2.5-flash"],
   },
   voyage: {
     default: "voyage-3",

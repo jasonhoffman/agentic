@@ -33,10 +33,6 @@ Safe exploration before implementation. Prevents wasted effort on wrong approach
    - What trade-offs exist?
    - What dependencies are involved?
 
-4. **Check danger zones**
-   - Read `docs/_FRAGILE.md`
-   - Note any overlap with fragile areas
-
 ### Phase 2: Present Plan
 
 5. **Document the approach**
@@ -96,8 +92,6 @@ Phase 1: Exploring...
 - Found API routes in app/api/
 - Current pattern: direct Supabase queries
 - No existing cache layer
-- _FRAGILE.md notes: "API rate limits are 100/min"
-
 Options identified:
 1. In-memory cache (simple, no infra)
 2. Redis (scalable, requires setup)

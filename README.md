@@ -77,15 +77,6 @@ Restart Claude Code.
 
 ---
 
-## Skills
-
-| Command | What |
-|---------|------|
-| `/wrap` | End session — commit |
-| `/sup` | Quick status |
-
----
-
 ## License
 
 MIT

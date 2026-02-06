@@ -383,34 +383,6 @@ EOF
 echo "✅ Created lib/layout/useLayout.ts"
 fi
 
-# Create docs/_FRAGILE.md
-if [ ! -f docs/_FRAGILE.md ]; then
-cat > docs/_FRAGILE.md << 'EOF'
-# Fragile Areas
-
-> ⚠️ Extra review required before changing these areas
-
-## Authentication
-- `lib/hooks/useAuth.ts` - Session handling
-- `lib/supabase/client.ts` - Auth configuration
-- Any Supabase RLS policies
-
-## Payments (if applicable)
-- [Add payment-related files here]
-
-## RLS Policies
-- See `docs/RLS-POLICIES.md` for all policies
-- Never add RLS policies that query other RLS tables
-- Test all four roles: owner, member, visitor, unauthenticated
-
-## Multi-Tenant Logic
-- Org/tenant context providers
-- Any code that switches organization context
-- Query invalidation on context switch
-EOF
-echo "✅ Created docs/_FRAGILE.md"
-fi
-
 # Create docs/ARCHITECTURE.md
 if [ ! -f docs/ARCHITECTURE.md ]; then
 cat > docs/ARCHITECTURE.md << 'EOF'

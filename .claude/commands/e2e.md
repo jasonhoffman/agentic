@@ -65,5 +65,4 @@ Result: Login flow working ✓
 
 - Use test accounts (never production credentials)
 - Check console for errors after each action
-- Compare against expected behavior in _FRAGILE.md
 - For complex flows, break into steps

@@ -97,11 +97,8 @@ Auth check → SecureStore → Supabase verify → AuthContext
 **Related files:**
 - `middleware.ts` — route protection
 - `app/(auth)/` — login/signup screens
-- `docs/_FRAGILE.md` — auth danger zones
-
 **Recommendations:**
-- Check _FRAGILE.md before modifying auth
-- Test both web and mobile flows
+- Extra care when modifying auth — test both web and mobile flows
 ```
 
 ## Tips
