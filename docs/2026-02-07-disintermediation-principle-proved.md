@@ -67,21 +67,15 @@ The proof arrived two weeks later when Anthropic shipped it all as product featu
 
 ## Why the workarounds look like the product
 
-Here's the part nobody talks about.
+The patterns I put in place weren't novel inventions. They were the obvious things to do when you understood how Claude Code actually worked and what it needed to be productive. Persona files, shared memory, task decomposition — these are what any experienced engineer would build after a week of heavy usage, because they're the gaps you hit immediately.
 
-When you use Claude Code to compensate for what Claude Code can't do yet, the model reaches for the most familiar patterns in its training data. It has seen every task runner, every CI system, every project management tool, every orchestration framework ever committed to a public repository. When you ask it to help you build "a system for coordinating multiple AI agents with role-based specialization and shared state," it will help you build exactly what any engineer would build — because that's the densest part of the training distribution.
+Anthropic's developers are also power users of their own tool. They're shipping Claude Code with Claude Code. They hit the same gaps, have the same understanding of what's missing, and arrive at the same solutions — except they can implement them at the runtime level, integrated into the agent loop with access to context windows, token budgets, and tool permissions that no external workaround can touch.
 
-And it builds it *well*. The code will be clean. The architecture will be reasonable. The abstractions will feel right. That's why your workarounds end up looking almost identical to what the vendor eventually ships — you're both drawing from the same well.
+This is the dynamic that matters: the vendor is dogfooding at extremely high velocity. The Claude Code team isn't designing features in a vacuum and shipping them quarterly. They're using the tool daily, feeling the friction, and closing gaps in weeks. My 14-role framework was ~2,300 lines of markdown compensating for something the team was already building.
 
-You end up building things that feel familiar to both you and the model — because they're recombinations of patterns from the training data. Task queues. Role-based access. Pub/sub coordination. State machines. These patterns exist in such density in the training corpus that they're the *default shape* of any solution the model reaches for.
+The convergence isn't mysterious. When experienced engineers use the same tool intensively, they identify the same gaps and reach for the same solutions. The difference is that one group can patch around the gaps and the other can close them permanently.
 
-This creates two blind spots:
-
-**First**, you're compensating in the exact space the platform vendor is actively closing. They have the same training data intuitions about what workflow tooling should look like, plus they have privileged access to the runtime. Every workaround you build for a gap in the tool is a gap the tool's team is also aware of. My 14-role framework was ~2,300 lines of markdown filling a hole that Anthropic filled with subagents deeply integrated into the agent loop — with access to context windows, token budgets, and tool permissions that no external workaround can touch.
-
-**Second**, the gaps that feel like "your unique workflow insight" are usually the most generic missing features. The persona-per-terminal pattern? That's just role-based task decomposition — a concept with decades of prior art. Shared memory files? That's a distributed state store. RFDs with task assignments? That's a DAG scheduler. The model helped me build these workarounds because they're *maximally familiar* in its training data, not because they're novel.
-
-The novel parts — the parts that actually mattered — were the specific domain constraints. The Supabase RLS rules that prevent recursive policy queries. The iOS SecureStore 2048-byte limit requiring token chunking. The fact that TanStack Query invalidation keys must exactly match query keys. These are the things that are scarce in the training data and expensive to rediscover. These are what belong in `CLAUDE.md`.
+This tells you something about where to invest your effort. The workarounds that any power user would build — task coordination, session memory, role specialization — those are the gaps the vendor will close, because they're feeling them too. The things that *won't* converge are your domain-specific constraints. The Supabase RLS rules that prevent recursive policy queries. The iOS SecureStore 2048-byte limit requiring token chunking. The fact that TanStack Query invalidation keys must exactly match query keys. These are the things Anthropic's team will never ship, because they're yours. These are what belong in `CLAUDE.md`.
 
 ## What survived
 
