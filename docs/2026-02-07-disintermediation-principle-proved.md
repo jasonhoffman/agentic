@@ -1,16 +1,18 @@
 # The Disintermediation Principle, Proved by Its Own Negation
 
-*Or: I spent six weeks building the workflow that Anthropic shipped on February 5th.*
+*Or: I spent six weeks compensating for what Claude Code couldn't do yet, and then it could.*
 
 ---
 
 On Christmas Eve 2025 I started a repo called `agentic`. The first commit was 2,312 lines across 19 files: 14 agent roles — frontend engineer, security engineer, QA, product manager, technical writer — plus orchestration concepts, communication protocols, and a template called `_AGENTS.md` that you'd copy into any project to coordinate them all.
 
+I wasn't building a product. I was building scaffolding to make Claude Code work the way I needed it to work *right now* — because the tool didn't do these things yet, and I had a production app to ship.
+
 Six weeks and 79 commits later, on February 5th 2026, Anthropic released Claude Code 2.1.32 alongside Opus 4.6. Agent teams. Auto-memory. Task lists with dependency tracking. Plan mode. Explore agents. Subagent orchestration. Context compaction for indefinite sessions.
 
-I deleted 800 net lines that day. The product had absorbed the workflow.
+I deleted 800 net lines that day. The tool had caught up to the workarounds.
 
-This is a story about building something, watching it get subsumed, and realizing that's exactly what should have happened — because I had articulated the principle that predicted it, and then ignored my own advice.
+This is a story about compensating for gaps, watching the gaps close, and realizing that the pattern of what got absorbed — and what didn't — is the most useful thing I learned.
 
 ## The workflow I was running
 
@@ -57,27 +59,27 @@ In late January, after a 3 AM session exploring what the `agentic` repo should a
 >
 > When new models drop, apps with reasoning flowing through models get better automatically. Apps with logic baked into code get nicer explanations of the same outputs.
 
-And then I looked at what I'd been building: persona prompts, orchestration protocols, task assignment systems, session management workflows. Every one of these was a *hardcoded reasoning flow*. I was building consensus algorithms for agents. I was building a prompt management system.
+And then I looked at what I'd been building: persona prompts, orchestration protocols, task assignment systems, session management workflows. Every one of these was a *hardcoded reasoning flow*. I was building consensus algorithms for agents. I was building a prompt management system. Not because I set out to — but because those were the gaps, and I needed to fill them to get work done.
 
-I was violating my own principle while writing it down.
+I was compensating. And compensation, by definition, is temporary.
 
-The proof arrived two weeks later when Anthropic shipped it all as product features. My workflow scaffolding wasn't just unnecessary — it was *destined* to be absorbed, because it existed in the exact layer that platform vendors optimize: the gap between what models can do and what users need to manage.
+The proof arrived two weeks later when Anthropic shipped it all as product features. My workarounds weren't wrong — they worked, they shipped an app — but they were *destined* to be absorbed, because they existed in the exact layer that platform vendors optimize: the gap between what models can do and what users need to manage.
 
-## The real danger: building for the largest corpus
+## Why the workarounds look like the product
 
 Here's the part nobody talks about.
 
-When you use Claude Code to build workflow tooling for Claude Code, you are optimizing against the largest training corpus in history. The model has seen every task runner, every CI system, every project management tool, every orchestration framework ever committed to a public repository. When you ask it to help you build "a system for coordinating multiple AI agents with role-based specialization and shared state," it will enthusiastically help you reinvent what it already knows how to do.
+When you use Claude Code to compensate for what Claude Code can't do yet, the model reaches for the most familiar patterns in its training data. It has seen every task runner, every CI system, every project management tool, every orchestration framework ever committed to a public repository. When you ask it to help you build "a system for coordinating multiple AI agents with role-based specialization and shared state," it will help you build exactly what any engineer would build — because that's the densest part of the training distribution.
 
-And it knows how to do it *well*. The code will be clean. The architecture will be reasonable. The abstractions will feel right. That's the trap.
+And it builds it *well*. The code will be clean. The architecture will be reasonable. The abstractions will feel right. That's why your workarounds end up looking almost identical to what the vendor eventually ships — you're both drawing from the same well.
 
 You end up building things that feel familiar to both you and the model — because they're recombinations of patterns from the training data. Task queues. Role-based access. Pub/sub coordination. State machines. These patterns exist in such density in the training corpus that they're the *default shape* of any solution the model reaches for.
 
-This is doubly dangerous:
+This creates two blind spots:
 
-**First**, you're building in the space the platform vendor is also building in. They have the same training data intuitions about what workflow tooling should look like, plus they have privileged access to the runtime. You will always lose this race. My 14-role framework was ~2,300 lines of markdown. Anthropic's subagent system is deeply integrated into the agent loop with access to context windows, token budgets, and tool permissions that no external tool can touch.
+**First**, you're compensating in the exact space the platform vendor is actively closing. They have the same training data intuitions about what workflow tooling should look like, plus they have privileged access to the runtime. Every workaround you build for a gap in the tool is a gap the tool's team is also aware of. My 14-role framework was ~2,300 lines of markdown filling a hole that Anthropic filled with subagents deeply integrated into the agent loop — with access to context windows, token budgets, and tool permissions that no external workaround can touch.
 
-**Second**, the things that feel like "your unique workflow insight" are usually the most generic parts of your process. The persona-per-terminal pattern? That's just role-based task decomposition — a concept with decades of prior art. Shared memory files? That's a distributed state store. RFDs with task assignments? That's a DAG scheduler. The model helped me build these because they're *maximally familiar* in its training data, not because they're novel.
+**Second**, the gaps that feel like "your unique workflow insight" are usually the most generic missing features. The persona-per-terminal pattern? That's just role-based task decomposition — a concept with decades of prior art. Shared memory files? That's a distributed state store. RFDs with task assignments? That's a DAG scheduler. The model helped me build these workarounds because they're *maximally familiar* in its training data, not because they're novel.
 
 The novel parts — the parts that actually mattered — were the specific domain constraints. The Supabase RLS rules that prevent recursive policy queries. The iOS SecureStore 2048-byte limit requiring token chunking. The fact that TanStack Query invalidation keys must exactly match query keys. These are the things that are scarce in the training data and expensive to rediscover. These are what belong in `CLAUDE.md`.
 
@@ -103,7 +105,7 @@ The timeline on absorption is shortening. In December I had a multi-week lead bu
 
 The agentic repo is now radically minimal: 34 lines of principles, two MCP servers, a shell script, some earned conversations. Everything else was absorbed into the tool I was using to build it.
 
-That's the disintermediation principle working correctly. I just happened to be standing in the path of what got disintermediated.
+That's the disintermediation principle working correctly. The workarounds did their job — they shipped an app — and then the tool caught up and made them unnecessary. The best outcome for scaffolding is that you get to delete it.
 
 ---
 
