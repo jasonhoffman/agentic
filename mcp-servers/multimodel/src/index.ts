@@ -29,7 +29,7 @@ const MODELS = {
   },
   gemini: {
     default: "gemini-3-pro-preview",
-    available: ["gemini-3-pro-preview", "gemini-3-flash-preview", "gemini-2.5-pro", "gemini-2.5-flash"],
+    available: ["gemini-3-pro-preview", "gemini-3-flash-preview"],
   },
   voyage: {
     default: "voyage-3",
@@ -77,7 +77,6 @@ async function queryOpenAIResponses(
   prompt: string,
   systemPrompt: string | undefined,
   model: string,
-  maxTokens: number
 ): Promise<{ content: string; model: string; usage: unknown }> {
   const apiKey = getApiKey("openai");
 
@@ -97,7 +96,6 @@ async function queryOpenAIResponses(
     body: JSON.stringify({
       model,
       input,
-      max_output_tokens: maxTokens,
     }),
   });
 
@@ -154,7 +152,6 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               description: `Model (default: ${MODELS.openai.default})`,
               enum: MODELS.openai.available,
             },
-            max_tokens: { type: "number", description: "Max tokens (default: 4096)" },
           },
           required: ["prompt"],
         },
@@ -172,7 +169,6 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               description: `Model (default: ${MODELS.gemini.default})`,
               enum: MODELS.gemini.available,
             },
-            max_tokens: { type: "number", description: "Max output tokens (default: 4096)" },
           },
           required: ["prompt"],
         },
@@ -225,15 +221,14 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   try {
     switch (name) {
       case "query_openai": {
-        const { prompt, system_prompt, model = MODELS.openai.default, max_tokens = 4096 } = args as {
+        const { prompt, system_prompt, model = MODELS.openai.default } = args as {
           prompt: string;
           system_prompt?: string;
           model?: string;
-          max_tokens?: number;
         };
 
         if ((MODELS.openai.responsesApi as readonly string[]).includes(model)) {
-          const result = await queryOpenAIResponses(prompt, system_prompt, model, max_tokens);
+          const result = await queryOpenAIResponses(prompt, system_prompt, model);
           return {
             content: [{
               type: "text",
@@ -250,7 +245,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const response = await openai.chat.completions.create({
           model,
           messages,
-          max_completion_tokens: max_tokens,
         });
 
         return {
@@ -266,11 +260,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       }
 
       case "query_gemini": {
-        const { prompt, system_prompt, model = MODELS.gemini.default, max_tokens = 4096 } = args as {
+        const { prompt, system_prompt, model = MODELS.gemini.default } = args as {
           prompt: string;
           system_prompt?: string;
           model?: string;
-          max_tokens?: number;
         };
 
         const ai = getGemini();
@@ -278,7 +271,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           model,
           contents: prompt,
           config: {
-            maxOutputTokens: max_tokens,
             ...(system_prompt && { systemInstruction: system_prompt }),
           },
         });
@@ -340,7 +332,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const [openaiResult, geminiResult] = await Promise.allSettled([
           (async () => {
             if ((MODELS.openai.responsesApi as readonly string[]).includes(openai_model)) {
-              return queryOpenAIResponses(prompt, system_prompt, openai_model, 4096);
+              return queryOpenAIResponses(prompt, system_prompt, openai_model);
             }
 
             const openai = getOpenAI();
@@ -350,7 +342,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             const response = await openai.chat.completions.create({
               model: openai_model,
               messages,
-              max_completion_tokens: 4096,
             });
             return {
               model: openai_model,
@@ -364,7 +355,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
               model: gemini_model,
               contents: prompt,
               config: {
-                maxOutputTokens: 4096,
                 ...(system_prompt && { systemInstruction: system_prompt }),
               },
             });
