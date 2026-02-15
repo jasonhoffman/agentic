@@ -32,7 +32,7 @@ const MODELS = {
     available: ["gemini-3-pro-preview", "gemini-3-flash-preview"],
   },
   voyage: {
-    default: "voyage-3",
+    default: "voyage-4-large",
   },
 } as const;
 
