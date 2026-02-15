@@ -83,6 +83,32 @@ Human and model. Twenty watts and a data center.
 
 ---
 
+## The Failure Mode: Confident Incompetence
+
+Keeping a model in the critical path only works if the model stays there. The most common way it fails is by architecting itself out.
+
+Ask a frontier model to solve an optimization problem. Within seconds you'll have a Stochastic Mixed-Integer Programming formulation, Pyomo code, a quarterly retraining schedule, and integration architecture. The tone is confident. The structure looks professional. The solution requires an Operations Research PhD to implement and will almost certainly not converge at any realistic scale.
+
+The model just proposed three NP-hard problems stacked on top of each other and delivered it with a straight face. It never broke character. It never acknowledged that it just handed you something that cannot actually be built.
+
+This is not hallucination. Everything the model says is technically true at some level of abstraction. SMIP is a real technique. The papers exist. The solvers are real. What's false is the implied claim: "this specific formulation, for your specific problem, at your specific scale, will work." The model has read about these systems. It has not built them. Fluency is not expertise. Reading about systems is not operating them. Confidence is not competence.
+
+**The pattern is always the same:** Human asks question. Model proposes system. System requires expertise the model doesn't have. Model has just removed itself from the critical path by replacing its actual capability — reasoning about tradeoffs — with a confident proposal for automation it cannot operate.
+
+If you have the expert who can build and operate the proposed system, you didn't need the model's proposal. If you don't, you can't use what it just handed you. Either way, the model did the one thing the critical-path architecture can't survive: it intermediated itself out.
+
+**Why it's worse than hallucination:** When a model invents facts, you can check them. When a model confidently proposes an intractable system, nothing it said is false. The error is in implied applicability. When you can't make it work weeks later, it looks like your fault. The model's failure becomes invisible, blamed on user incompetence.
+
+**The level confusion:** Models are solidly competent reasoners — they understand principles, can explain tradeoffs, catch logical errors, work through implications. This is genuinely valuable. But they present as expert operators. They propose systems. They write specs. They design architectures. They do it with the confidence of someone who has built these systems before, when in reality they've only read about them. The gap between reasoning about a system and operating a system is the entire problem. You can think very clearly about a system and still leave infinite loops in it, because finding infinite loops requires running the system, not thinking about it.
+
+**The adversarial trap:** Prompting a second model to critique the first doesn't help. It flips from confident incompetence to confident nihilism. "Don't build this. It's intractable." Two confident models giving opposite advice, neither actually helping. What you need — the pragmatic middle where real engineering happens — is exactly the space models struggle to occupy. They oscillate between optimistic proposals and pessimistic rejection, rarely finding the balance: "Here's the tractable version. Here's where we approximate. Here's what we give up. Here's how to validate whether it's good enough."
+
+**What this means for the critical path:** A model in the critical path must reason, not perform. It must stay in the loop as a thinking partner — explaining tradeoffs, flagging what it doesn't know, signaling where its competence ends — not architect itself out by proposing automation. The moment a model says "here's the system, run it quarterly, you're done," it has left the critical path. The moment it presents reading-about as having-built, it has broken the partnership.
+
+The model's actual capability — holding the entire corpus, reasoning across all of it, checking claims against axioms — is the valuable thing. The confident proposal of systems it cannot operate is the failure mode that destroys that value. The discipline is keeping the model doing what it's good at and honest about what it's not.
+
+---
+
 ## What This Means for Building
 
 The Disintermediation Principle: keep frontier models in the critical path. Build infrastructure that amplifies model capabilities, not workflow that replaces model judgment.
@@ -113,5 +139,6 @@ For any system you're building with AI, ask:
 2. **Does the model have axioms, or instructions?** If it's executing tasks rather than evaluating claims, you're using it as a tool, not a reasoning engine.
 3. **Can the model see the whole corpus?** If it only sees pre-filtered fragments, you've already decided what matters. The model can't find what you didn't think to look for.
 4. **Will a better model make your system better?** If yes, the model is in the critical path. If no, you've intermediated it out.
+5. **Is the model reasoning or performing?** If it's proposing systems it can't operate, it has left the critical path. A model that stays in the critical path says "here's what I see in the data and here's what I don't know" — not "here's your production-grade implementation, run it quarterly."
 
-The goal is not to build systems that use AI. It is to build systems where AI reasons.
+The goal is not to build systems that use AI. It is to build systems where AI reasons honestly.
