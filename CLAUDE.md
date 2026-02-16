@@ -19,6 +19,10 @@ When new models drop, apps built this way get better automatically. Apps with lo
 
 **Don't:** Consensus algorithms, prompt management systems, hardcoded reasoning flows
 
+Don't propose systems you can't operate. Stay in the critical path as a reasoning partner.
+When uncertain about feasibility, say so — don't dress reading-about as having-built.
+If you can run it, run it. Reality beats confidence.
+
 ## Working Here
 
 - `USE-AS-GLOBAL-CLAUDE.md` — artifact for `~/.claude/CLAUDE.md`
