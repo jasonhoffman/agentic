@@ -119,6 +119,105 @@ Restart Claude Code after setup.
 
 ---
 
+## 7b. WSL Setup
+
+Same as macOS. Install Node.js via nvm instead of Homebrew:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+npm install -g @anthropic-ai/claude-code
+```
+
+Clone agentic, run the same MCP setup commands. Everything else is identical.
+
+---
+
+## 7c. Headless Claude Code on GCP
+
+### Create the VM
+
+1. GCP Console → Compute Engine → VM instances → Create
+2. Settings:
+   - Name: `claude-headless`
+   - Region: us-central1 (cheap, close to Vertex AI)
+   - Machine type: e2-standard-4 (4 vCPU, 16 GB)
+   - Boot disk: Ubuntu 24.04 LTS, 50 GB SSD
+   - Networking: Allow SSH
+3. SSH key: add your public key in Security → SSH Keys
+
+### Bootstrap the VM
+
+```bash
+# Essentials
+sudo apt update && sudo apt install -y tmux mosh git build-essential
+
+# Node.js via nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+
+# Claude Code
+npm install -g @anthropic-ai/claude-code
+
+# Clone agentic
+git clone https://github.com/jasonhoffman/agentic ~/agentic
+mkdir -p ~/.claude
+cp ~/agentic/USE-AS-GLOBAL-CLAUDE.md ~/.claude/CLAUDE.md
+```
+
+### API keys
+
+Add to `~/.bashrc`:
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+export OPENAI_API_KEY=sk-...
+export GEMINI_API_KEY=AI...
+export VOYAGE_API_KEY=vo-...
+```
+
+Or use dotenvx (same as macOS/WSL) if you prefer encrypted secrets.
+
+### MCP servers for a project
+
+```bash
+cd ~/your-project
+cp -r ~/agentic/mcp-servers ./
+cp ~/agentic/.mcp.json ./
+cd mcp-servers/multimodel && npm install && cd ../serverless && npm install && cd ../..
+```
+
+### Daily workflow
+
+```bash
+# Connect (mosh survives network interruptions)
+mosh claude-headless
+# or: ssh claude-headless
+# or: gcloud compute ssh claude-headless
+
+# Start a tmux session
+tmux new -s claude
+
+# Run Claude Code
+claude
+
+# Detach without killing: Ctrl-b d
+# Session keeps running. Reconnect anytime:
+tmux attach -t claude
+```
+
+### Tips
+
+- **mosh** survives laptop sleep, wifi changes, network interruptions
+- **tmux** keeps Claude Code running when you disconnect — the agent continues working
+- For **GPU/TPU**: create separate on-demand instances, don't keep them running
+- Multiple tmux sessions: `tmux new -s agent1`, `tmux new -s agent2`
+- List sessions: `tmux ls`
+
+---
+
 ## 8. Supabase Vault (Optional)
 
 > **Skip this if solo.** dotenvx handles secrets. Vault is for teams or centralized key management across machines.

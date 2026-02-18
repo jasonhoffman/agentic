@@ -38,13 +38,24 @@ Apps with logic baked into code got nicer explanations of the same outputs.
 | Layer | Service | Why |
 |-------|---------|-----|
 | Database | Supabase | DB, auth, Vault, storage, realtime, cron, edge functions |
-| AI APIs | OpenAI, Gemini, Voyage | Via multimodel MCP |
+| AI APIs | OpenAI, Gemini, Voyage | Via multimodel MCP (direct API, simple) |
+| Compute | GCP | GPU/TPU, Vertex AI, Python ML, headless Claude Code |
 | Client | EAS | Native + web, Cloudflare in front |
 | Web-only | Vercel / Cloudflare / Netlify | If no native needed |
 
+## Environments
+
+| Environment | Where | Purpose |
+|-------------|-------|---------|
+| macOS laptop | Interactive | Development, design, testing |
+| Ubuntu WSL | Local Linux | Linux-native tools, Docker, cross-platform |
+| GCP headless | SSH + tmux | GPU/TPU, Vertex AI, Python ML, long-running autonomous work |
+
+Same repo. Same `.mcp.json`. Same Claude Code. Different capabilities per environment.
+
 ## What You Skip
 
-- AWS/Azure/GCP console
+- AWS/Azure console
 - Kubernetes
 - Docker orchestration
 - Infra-as-code complexity
@@ -61,6 +72,9 @@ Apps with logic baked into code got nicer explanations of the same outputs.
 | Auth-adjacent logic | Supabase Edge Functions |
 | External AI queries | Multimodel MCP |
 | Rendering | EAS / Vercel |
+| GPU/TPU workloads | GCP (on-demand instances) |
+| Python ML | GCP headless |
+| Headless Claude Code | GCP (always-on, small VM) |
 
 ## Scale / Compliance / Multi-region
 
@@ -83,12 +97,13 @@ What agentic should provide. Capabilities, not frameworks.
 
 ## MCP Strategy
 
-Two MCPs. Claude Code is the end user.
+Claude Code is the end user.
 
 | MCP | Tools | Purpose |
 |-----|-------|---------|
-| `multimodel` | query_openai, query_gemini, embed_voyage, parallel_query | AI model APIs |
+| `multimodel` | query_openai, query_gemini, embed_voyage, parallel_query | AI model APIs (direct) |
 | `serverless` | discover, invoke | Edge functions (Supabase) |
+| `vertex` | *(future)* | GPU/TPU, Vertex AI, Python ML |
 
 **Why this works:**
 
@@ -116,6 +131,8 @@ Two MCPs. Claude Code is the end user.
 
 ## Need
 
+- [ ] GCP headless VM setup (see human-instructions.md)
+- [ ] Vertex/GCP MCP server (when first GPU/TPU or Vertex AI use case arrives)
 - [ ] Supabase edge function patterns
 - [ ] EAS — Native + web deployment, Cloudflare
 

@@ -23,6 +23,15 @@ Don't propose systems you can't operate. Stay in the critical path as a reasonin
 When uncertain about feasibility, say so — don't dress reading-about as having-built.
 If you can run it, run it. Reality beats confidence.
 
+## Environments
+
+Three environments, same repo, same `.mcp.json`:
+- **macOS laptop** — interactive development
+- **Ubuntu WSL** — local Linux
+- **GCP headless** — SSH + tmux, GPU/TPU, Vertex AI, Python ML
+
+See `docs/stack.md` for architecture. See `human-instructions.md` for setup.
+
 ## Working Here
 
 - `USE-AS-GLOBAL-CLAUDE.md` — artifact for `~/.claude/CLAUDE.md`

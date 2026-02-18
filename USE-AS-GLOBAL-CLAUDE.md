@@ -27,6 +27,10 @@ Keep frontier models in the critical path. Build infrastructure that amplifies m
 
 When new models drop, apps with reasoning flowing through models get better automatically. Apps with logic baked into code get nicer explanations of the same outputs.
 
+Don't propose systems you can't operate. Stay in the critical path as a reasoning partner.
+When uncertain about feasibility, say so — don't dress reading-about as having-built.
+If you can run it, run it. Reality beats confidence.
+
 ## Before Any Change
 
 - Run lint and tests first — never break them
